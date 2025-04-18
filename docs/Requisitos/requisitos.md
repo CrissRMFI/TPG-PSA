@@ -1,5 +1,3 @@
-# Ingeniería de requisitos
-
 ## Alcance de la solución
 
 PSA Project Manager es una aplicación orientada a la gestión eficiente de proyectos bajo contratos Time & Materials y Llave en Mano. Su principal objetivo es hacer el seguimiento de dichos proyectos y representar fielmente los detalles de cada uno de ellos.  
@@ -23,7 +21,7 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 
 | ID      | REQUISITO | DESCRIPCIÓN | CATEGORÍA | ASOCIACIÓN | PRIORIDAD |
 |---------|-----------|-------------|-----------|------------|-----------|
-| RF1     | Gestión de proyectos | El sistema debe permitir crear y gestionar proyectos, estableciendo su información básica como nombre, cliente, equipo que lo desarrollará,tipo de contrato y fechas estimadas | Funcional | - | Alta|
+| RF1     | Gestión de proyectos | El sistema debe permitir crear y gestionar proyectos, estableciendo su información básica como nombre, cliente, equipo que lo desarrollará,tipo de contrato y fechas estimadas | Funcional |  | Alta|
 | RF1.1    | Registro de horas trabajadas | El sistema debe permitir registrar las horas trabajadas por proyecto de forma precisa | Funcional | | Alta |
 | RF1.1.1   | Consulta de horas facturadas | Permitir consultar cuántas horas se han trabajado desde la última fecha de facturación | Funcional | RF1.1  | Alta |
 | RF1.2    | Consulta de equipo de proyecto | Consultar qué equipo está asignado a un proyecto específico. | Funcional | RF1 | Media     |
