@@ -35,10 +35,10 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 | RF3.1   | Datos de contrato y equipo | Mostrar tipo de contrato y equipo encargado para cada proyecto en la vista general. | Funcional  | RF3  | Media     |
 | RF4     | Compatibilidad con otras plataformas | Los datos con los que trabajará el esistema deberán poder ser importados o exportados desde otras aplicaciones | Funcional | | Baja |
 | RF4.1    | Integración con CRM y ERP | Integrar datos de cliente, servicio y pagos cruzados desde CRM y ERP | Funcional | RF4       | Baja      |
-| RF4.2     | Compatibilidad con Microsoft Project | Permitir importar y exportar datos hacia/desde Microsoft Project. | Funcional             | RF4 |
-| RF4.3     | Exportación a Excel | Permitir exportar datos en formato compatible con Excel | Funcional             | RF4     | Media     |
-| RF5    | Reporte de estado de proyectos | Generar reportes sobre el estado de avance de cada proyecto. | Funcional | RF3   | Baja      |
-| RF10    | Control de cambios | Registrar cambios no pactados y permitir cotización y aceptación por parte del cliente  | Funcional     | RF1      | Alta      |
+| RF4.2     | Compatibilidad con Microsoft Project | Permitir importar y exportar datos hacia/desde Microsoft Project. | Funcional             | RF4 | Baja |
+| RF4.3     | Exportación a Excel | Permitir exportar datos en formato compatible con Excel | Funcional         | RF4     | Baja     |
+| RF5    | Reporte de estado de proyectos | Generar reportes sobre el estado de avance de cada proyecto. | Funcional | RF3   | Baja  |
+| RF6    | Control de cambios | Registrar cambios no pactados y permitir cotización y aceptación por parte del cliente  | Funcional     | RF1      | Alta      |
 | RN1     | Consideración de multas   | Las multas son informativas y no deben descontarse automáticamente en las cotizaciones.         | Regla de negocio       | RF2                                      | Alta      |
 | RU1     | Interfaz amigable y compatibilidad visual con MS Project  | La interfaz debe ser familiar para usuarios acostumbrados a Microsoft Project  | Requisito de usuario   | RF4          | Baja     |
 
