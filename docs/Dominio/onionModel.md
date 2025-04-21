@@ -16,7 +16,6 @@ Este modelo identifica los stakeholders del sistema PSA Cloud Spring ERP.
 
 Interactúan directamente con el sistema (usan la interfaz para tareas reales):
 
-- Vendedores
 - Empleados administrativos
 - Operadores de facturación
 - Personal de compras y contabilidad
@@ -46,6 +45,7 @@ No interactúan con el sistema directamente, pero son influenciados por él o lo
 - Management de PSA
 - Clientes corporativos
 - Proveedores estratégicos
+- Vendedores
 
 ## ![Onion Model](<R1.2 Onion Model.png>)
 
