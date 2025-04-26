@@ -1,7 +1,7 @@
-# 📝 Minuta de Reunión – Gustavo Cuchina (Implementaciones)
+# 📝 Minuta de Reunión – Gustavo Cuccina (Implementaciones)
 
 **📅 Fecha:** 24/04/2025  
-**👤 Participante principal:** Gustavo Cuchina – Área de Implementaciones  
+**👤 Participante principal:** Gustavo Cuccina – Área de Implementaciones  
 **🎯 Objetivo:** Analizar las necesidades del área de implementaciones en relación a la gestión de proyectos, seguimiento de desarrollos y registro de configuraciones aplicadas en clientes.
 
 ---
