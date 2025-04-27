@@ -50,7 +50,7 @@ La combinación **Prioridad 1 / Severidad 1** representa los casos de atención 
 
 ### 📔 6. Procedimiento de actualizaciones y personalizaciones
 
-Quedó establecido que toda actualización o instalación de módulos personalizados es gestionada exclusivamente por el equipo de **Implementaciones**, liderado por Gustavo Kuchina, mediante procesos formales administrados como proyectos, no como tickets de soporte.
+Quedó establecido que toda actualización o instalación de módulos personalizados es gestionada exclusivamente por el equipo de **Implementaciones**, liderado por Gustavo Cuccina, mediante procesos formales administrados como proyectos, no como tickets de soporte.
 
 ---
 
