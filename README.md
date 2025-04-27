@@ -40,10 +40,14 @@ Una solución estándar que:
 
 ➡️ Ver [Minuta completa de la reunión del 10/04/2025 - Roberto Ratio (Gerente de Finanzas)](./docs/minutas/minuta-RobertoRatio-10042025.md)
 
----
+➡️ Ver [Minuta completa de la reunión del 24/04/2025 - Augusto Aguanti (Soporte a Clientes)](docs/Minutas/minuta-AugustoAguanti-24042025.md)
+
+➡️ Ver [Minuta completa de la reunión del 24/04/2025 - Gustavo Cuccina (Implementaciones)](docs/Minutas/minuta-GustavoCuccina-24042025.md)
+
+➡️ Ver [Minuta completa de la reunión del 10/04/2025 - Maximiliano Gantt (Desarrollo / Gestión de Proyectos)](docs/Minutas/minuta-MaximilianoGantt-24042025.md)
 
 ## 📋 Requisitos identificados
 
-(Ver tabla de requisitos detallada en archivo separado)
+[Ver tabla de requisitos detallada](docs/Requisitos/requisitos.md)
 
 ---
