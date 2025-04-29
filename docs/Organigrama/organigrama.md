@@ -42,7 +42,8 @@ graph TB
   B2 --> B2c[Desarrolladores]
 
   B3 --> B3a[Supervisor de Soporte]
-  B3 --> B3b[Analistas de mesa de ayuda]
+  B3a --> B3b[Analistas de Nivel 1<br>Mesa de Ayuda]
+  B3a --> B3c[Analistas de Nivel 2 <br>Soporte Especializado]
 
   B4 --> B4a[Supervisor]
   B4 --> B4b[2 especialistas técnicos]
