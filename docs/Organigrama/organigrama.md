@@ -26,7 +26,7 @@ graph TB
   A --> E[Gerencia de Administración y Finanzas<br>Roberto Ratio]
 
   B --> B1[Desarrollo de productos]
-  B --> B2[Implementaciones]
+  B --> B2[Jefe de Implementaciones<br>Guatavo Cuccina]
   B --> B3[Soporte a clientes]
   B --> B4[Infraestructura tecnológica]
 
@@ -36,6 +36,7 @@ graph TB
   B1 --> B1d[Jefe de Producto]
 
   B1d --> B1d1[Analistas Funcionales]
+
   B2 --> B2a[Líder]
   B2 --> B2b[Consultores]
   B2 --> B2c[Desarrolladores]
