@@ -27,7 +27,7 @@ graph TB
 
   B --> B1[Desarrollo de productos]
   B --> B2[Jefe de Implementaciones<br>Guatavo Cuccina]
-  B --> B3[Soporte a clientes]
+  B --> B3[Soporte a clientes<br> Augusto Aguanti]
   B --> B4[Infraestructura tecnológica]
 
   B1 --> B1a[Líderes de proyecto]
