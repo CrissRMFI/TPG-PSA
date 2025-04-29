@@ -37,11 +37,11 @@ graph TB
 
   B1d --> B1d1[Analistas Funcionales]
 
-  B2 --> B2a[Líder]
-  B2 --> B2b[Consultores]
-  B2 --> B2c[Desarrolladores]
 
-  B3 --> B3a[Supervisor de Soporte]
+  B2 --> B2b[Consultores de Implementacion]
+  B2 --> B2c[Desarrolladores de Implementacion]
+
+  B3 ---> B3a[Supervisor de Soporte]
   B3a --> B3b[Analistas de Nivel 1<br>Mesa de Ayuda]
   B3a --> B3c[Analistas de Nivel 2 <br>Soporte Especializado]
   B3a --> B3d[Analistas de Nivel 3 <br>Soporte de implementacion]
