@@ -20,7 +20,7 @@ Dentro de estas gerencias existen diversas áreas funcionales, equipos técnicos
 graph TB
   A[Dirección General<br>Juan Zeo]
 
-  A --> B[Gerencia de Operaciones<br>Fernando Soluzzia]
+  A ----> B[Gerencia de Operaciones<br>Fernando Soluzzia]
   A --> C[Gerencia de Marketing<br>José Mercado]
   A --> D[Gerencia de Ventas<br>Juan Anvizzio]
   A --> E[Gerencia de Administración y Finanzas<br>Roberto Ratio]
@@ -46,7 +46,7 @@ graph TB
   B3a --> B3c[Analistas de Nivel 2 <br>Soporte Especializado]
   B3a --> B3d[Analistas de Nivel 3 <br>Soporte de implementacion]
 
-  B4 --> B4a[Supervisor]
+  B4 --> B4a[Supervisor de Infraestructura]
   B4 --> B4b[2 especialistas técnicos]
 
   C --> C1[Analistas de marketing]
