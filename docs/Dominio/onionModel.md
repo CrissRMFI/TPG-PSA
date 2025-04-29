@@ -16,12 +16,12 @@ Este modelo identifica los stakeholders del sistema PSA Cloud Spring ERP.
 
 Interactúan directamente con el sistema:
 
-- Analistas de Nivel 2 (Soporte Especializado)
-- Analistas de Nivel 3 (Desarrollo / Funcional)
+- Analistas de Nivel 2 (Sopoerte especializado)
+- Consultores de implementaciones
 - Implementadores
-- Responsable de Proyectos (Maximilian Gantt)
-- Equipo de Desarrollo y testeo
-- Consultores de Implementación
+- Desarrolladores de Productos
+- Gerente de Proyectos (Maximilian Gantt)
+- Analistas Funcionales
 
 ---
 
@@ -29,9 +29,11 @@ Interactúan directamente con el sistema:
 
 Supervisa y mantienen el sistema
 
-- Analistas de Nivel 1 (Guian al cliente)
-- Consultores de Implementación (cuando parametrizan/configuran)
+- Analistas de Nivel 1 (Mesa de Ayuda)
 - Técnicos de infraestructura
+- Supervisor de Infraestructura
+- Arquitecto Jefe
+- Consultores de Implementación (cuando parametrizan/configuran)
 
 ---
 
@@ -39,13 +41,17 @@ Supervisa y mantienen el sistema
 
 No interactúan con el sistema directamente, pero son influenciados por él o lo influyen:
 
-- Product Owner (PO)
-- Program Manager (PM)
-- Gerencia de Operaciones
-- Gerencia General (Juan Zeo)
+- Product Owner (Juan Zeo)
+- Product Manager (Leonardo Felicci)
+- Product Owner (Tomas Brunelesohi)
+- Gerencia de Operaciones (Fernando Soluzzia)
 - Gerente de Finanzas (Roberto Ratio)
+- Gerente de Marketing (Jose Mercado)
+- Gerente de Ventas (Juan Anvizzio)
+- Area de Finanzas
 - Clientes PSA
 - Vendedores
+- Analistas de Marketing
 
 ## ![Onion Model](<R1.2 Onion Model.png>)
 
@@ -78,15 +84,15 @@ No interactúan con el sistema directamente, pero son influenciados por él o lo
 
 ### 🟢 **Capa 3 – Stakeholders indirectos**
 
-| Rol                                  | Descripcion                                                          |
-| ------------------------------------ | -------------------------------------------------------------------- |
-| **Product Owner (PO)**               | Define alcance funcional y prioriza el desarrollo del sistema.       |
-| **Program Manager (PM)**             | Supervisa la alineación estratégica de proyectos y equipos.          |
-| **Gerencia de Operaciones**          | Supervisa la estrategia técnica y operativa general de PSA.          |
-| **Gerencia General (Juan Zeo)**      | Toma decisiones estratégicas sobre el sistema y su evolución.        |
-| **Área de Finanzas (Roberto Ratio)** | Evalúa costos y control presupuestario de los proyectos gestionados. |
-| **Clientes de PSA**                  | Reciben soporte e implementaciones eficientes gracias al sistema.    |
-| **Vendedores**                       | Impactados indirectamente por la agilidad en soporte y proyectos.    |
+| Rol                                   | Descripcion                                                          |
+| ------------------------------------- | -------------------------------------------------------------------- |
+| **Product Owner (Tomas Brunelesohi)** | Define alcance funcional y prioriza el desarrollo del sistema.       |
+| **Product Manager (Leonardo Felici)** | Supervisa la alineación estratégica de proyectos y equipos.          |
+| **Gerencia de Operaciones**           | Supervisa la estrategia técnica y operativa general de PSA.          |
+| **Gerencia General (Juan Zeo)**       | Toma decisiones estratégicas sobre el sistema y su evolución.        |
+| **Área de Finanzas (Roberto Ratio)**  | Evalúa costos y control presupuestario de los proyectos gestionados. |
+| **Clientes de PSA**                   | Reciben soporte e implementaciones eficientes gracias al sistema.    |
+| **Vendedores**                        | Impactados indirectamente por la agilidad en soporte y proyectos.    |
 
 ---
 
@@ -94,3 +100,11 @@ No interactúan con el sistema directamente, pero son influenciados por él o lo
 
 - [Psa v2020.pdf](https://drive.google.com/drive/folders/0B-OprvtGicVBYmpGUi1OMGsxLUU?resourcekey=0-9XgFyQ4ip67BE8zXErZ4Xg) .
 - Basado en la estructura del Onion Model original de Robertson & Robertson
+
+Minutas de reuinion
+
+- [Juan Zeo - 07/04/2025](../Minutas/minuta-JuanZeo-07042025.md)
+- [Roberto Ratio - 10/04/2025](../Minutas/minuta-RobertoRatio-10042025.md)
+- [Maximiliano Gantt - 24/04/2025](../Minutas/minuta-MaximilianoGantt-24042025.md)
+- [Gustavo Cuccini - 24/04/2025](../Minutas/minuta-GustavoCuccina-24042025.md)
+- [Augusto Aguanti - 24/04/2025](../Minutas/minuta-AugustoAguanti-24042025.md)
