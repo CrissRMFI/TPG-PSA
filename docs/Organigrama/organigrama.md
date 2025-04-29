@@ -61,26 +61,35 @@ graph TB
 
 # Glosario de Roles y Áreas del Organigrama – PSA
 
-| Término o Rol               | Definición resumida                                                                                   |
-| --------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Dirección General           | Liderazgo máximo de la empresa. Encargado de la estrategia general y decisiones clave.                |
-| Gerencia de Operaciones     | Área técnica y de desarrollo. Supervisa el ciclo de vida de los productos, soporte e infraestructura. |
-| Gerencia de Marketing       | Encargada de publicidad, relación con clientes y análisis de mercado.                                 |
-| Gerencia de Ventas          | Responsable de la comercialización y trato con los clientes.                                          |
-| Administración y Finanzas   | Maneja facturación, impuestos, sueldos, tesorería y planificación financiera.                         |
-| Desarrollo de productos     | Equipos que diseñan, desarrollan y prueban los productos ERP, CRM y BI.                               |
-| Implementaciones            | Instalan y personalizan los productos en clientes, relevan necesidades y desarrollan adaptaciones.    |
-| Soporte a clientes          | Área de atención a usuarios finales. Resuelve incidentes y consultas.                                 |
-| Infraestructura tecnológica | Administra servidores, herramientas internas y evalúa infraestructura de clientes.                    |
-| Líder de proyecto           | Coordina equipos técnicos por producto.                                                               |
-| Arquitecto jefe             | Supervisa la arquitectura técnica general de los productos.                                           |
-| Analista funcional          | Releva requisitos, diseña y prueba funcionalidades.                                                   |
-| Consultor                   | Personal que adapta el producto al cliente durante la implementación.                                 |
-| Supervisor                  | Responsable operativo de un equipo dentro de un área.                                                 |
-| Especialista técnico        | Personal con conocimientos específicos en infraestructura o herramientas.                             |
-| Vendedor senior             | Encargado de negociar y vender los productos a empresas.                                              |
-| Contador                    | Profesional que gestiona aspectos contables de la empresa.                                            |
-| Administrativo              | Personal de soporte en tareas operativas del área administrativa.                                     |
+| Término o Rol                                | Definición resumida                                                                                               |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Dirección General                            | Liderazgo máximo de la empresa. Encargado de la estrategia general y decisiones clave.                            |
+| Gerencia de Operaciones                      | Área técnica y de desarrollo. Supervisa el ciclo de vida de los productos, soporte e infraestructura.             |
+| Gerencia de Marketing                        | Encargada de publicidad, relación con clientes y análisis de mercado.                                             |
+| Gerencia de Ventas                           | Responsable de la comercialización y trato con los clientes.                                                      |
+| Administración y Finanzas                    | Maneja facturación, impuestos, sueldos, tesorería y planificación financiera.                                     |
+| Desarrollo de productos                      | Equipos que diseñan, desarrollan y prueban los productos ERP, CRM y BI.                                           |
+| Implementaciones                             | Instalan y personalizan los productos en clientes, relevan necesidades y desarrollan adaptaciones.                |
+| Soporte a clientes                           | Área de atención a usuarios finales. Resuelve incidentes y consultas.                                             |
+| Infraestructura tecnológica                  | Administra servidores, herramientas internas y evalúa infraestructura de clientes.                                |
+| Líder de proyecto                            | Coordina equipos técnicos por producto.                                                                           |
+| Arquitecto jefe                              | Supervisa la arquitectura técnica general de los productos.                                                       |
+| Analista funcional                           | Releva requisitos, diseña y prueba funcionalidades.                                                               |
+| Consultor de implementacion                  | Relevan necesidades del cliente, detectan gaps funcionales, parametrizan y lideran implementaciones.              |
+| Desarrolladores de Implementaciones          | Programan funcionalidades específicas para cada cliente durante la implementación.                                |
+| Supervisor                                   | Responsable operativo de un equipo dentro de un área.                                                             |
+| Especialista técnico                         | Personal con conocimientos específicos en infraestructura o herramientas.                                         |
+| Vendedor senior                              | Encargado de negociar y vender los productos a empresas.                                                          |
+| Contador                                     | Profesional que gestiona aspectos contables de la empresa.                                                        |
+| Administrativo                               | Personal de soporte en tareas operativas del área administrativa.                                                 |
+| Soporte a Clientes                           | Área que atiende usuarios finales. Gestiona incidentes de Nivel 1 y Nivel 2; escala casos críticos a otras áreas. |
+| Supervisor de Soporte                        | Supervisa la operación diaria de Nivel 1 y Nivel 2; coordina el escalamiento a Desarrollo o Implementaciones.     |
+| Analistas de Nivel 1 (Mesa de Ayuda)         | Registran y clasifican incidentes, primer punto de contacto con el usuario.                                       |
+| Analistas de Nivel 2 (Soporte Especializado) | Resuelven incidentes complejos que superan el primer nivel de atención.                                           |
+| Infraestructura Tecnológica                  | Administra servidores, herramientas internas y participa en evaluaciones de infraestructura de clientes.          |
+| Supervisor de Infraestructura                | Coordina la operación de los ambientes tecnológicos internos.                                                     |
+| Especialistas Técnicos de Infraestructura    | Administran servidores, redes, sistemas de correo y herramientas de desarrollo.                                   |
+| Analistas de Marketing                       | Ejecutan investigaciones de mercado, campañas publicitarias y análisis de tendencias.                             |
 
 ## 6. Fuente
 
