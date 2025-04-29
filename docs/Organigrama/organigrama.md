@@ -33,8 +33,9 @@ graph TB
   B1 --> B1a[Líderes de proyecto]
   B1 --> B1b[Desarrolladores]
   B1 --> B1c[Arquitecto jefe]
-  B1 --> B1d[Analistas funcionales]
+  B1 --> B1d[Jefe de Producto]
 
+  B1d --> B1d1[Analistas Funcionales]
   B2 --> B2a[Líder]
   B2 --> B2b[Consultores]
   B2 --> B2c[Desarrolladores]
