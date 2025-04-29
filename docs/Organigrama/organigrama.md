@@ -95,3 +95,11 @@ graph TB
 Este organigrama fue elaborado a partir del documento oficial **"PSA v2020.pdf"**
 
 📎 El archivo completo está incluido en la entrega como anexo, con nombre: [Psa v2020.pdf](https://drive.google.com/drive/folders/0B-OprvtGicVBYmpGUi1OMGsxLUU?resourcekey=0-9XgFyQ4ip67BE8zXErZ4Xg) .
+
+Minutas de reuinion
+
+- [Juan Zeo - 07/04/2025](../Minutas/minuta-JuanZeo-07042025.md)
+- [Roberto Ratio - 10/04/2025](../Minutas/minuta-RobertoRatio-10042025.md)
+- [Maximiliano Gantt - 24/04/2025](../Minutas/minuta-MaximilianoGantt-24042025.md)
+- [Gustavo Cuccini - 24/04/2025](../Minutas/minuta-GustavoCuccina-24042025.md)
+- [Augusto Aguanti - 24/04/2025](../Minutas/minuta-AugustoAguanti-24042025.md)
