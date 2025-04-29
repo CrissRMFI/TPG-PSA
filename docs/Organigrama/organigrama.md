@@ -44,7 +44,6 @@ graph TB
   B3 ---> B3a[Supervisor de Soporte]
   B3a --> B3b[Analistas de Nivel 1<br>Mesa de Ayuda]
   B3a --> B3c[Analistas de Nivel 2 <br>Soporte Especializado]
-  B3a --> B3d[Analistas de Nivel 3 <br>Soporte de implementacion]
 
   B4 --> B4a[Supervisor de Infraestructura]
   B4 --> B4b[2 especialistas técnicos]
