@@ -41,7 +41,7 @@ graph TB
   B2 --> B2b[Consultores]
   B2 --> B2c[Desarrolladores]
 
-  B3 --> B3a[Supervisor]
+  B3 --> B3a[Supervisor de Soporte]
   B3 --> B3b[Analistas de mesa de ayuda]
 
   B4 --> B4a[Supervisor]
