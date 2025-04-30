@@ -1,6 +1,6 @@
 ## Alcance de la solución
 
-PSA Project Manager es una aplicación orientada a la gestión eficiente de proyectos bajo contratos Time & Materials y Llave en Mano. Su principal objetivo es hacer el seguimiento de dichos proyectos y representar fielmente los detalles de cada uno de ellos.  
+PSA Project Manager es una aplicación orientada a la gestión eficiente de proyectos bajo contratos Time & Materials y Llave en Mano. Su principal objetivo es hacer el seguimiento de dichos proyectos y representar fielmente los detalles de cada uno de ellos.
 
 ---
 
@@ -8,37 +8,40 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 
 ### Códigos para requisitos
 
-| CÓDIGO | DESCRIPCIÓN                   |
-|--------|-------------------------------|
-| RF     | Requisito funcional           |
-| RNF    | Requisito no funcional        |
-| RN     | Requisito de negocio          |
-| RU     | Requisito de usuario          |
+| CÓDIGO | DESCRIPCIÓN            |
+| ------ | ---------------------- |
+| RF     | Requisito funcional    |
+| RNF    | Requisito no funcional |
+| RN     | Requisito de negocio   |
+| RU     | Requisito de usuario   |
 
 ---
 
 ### Matriz de trazabilidad
 
-| ID      | REQUISITO | DESCRIPCIÓN | CATEGORÍA | ASOCIACIÓN | PRIORIDAD |
-|---------|-----------|-------------|-----------|------------|-----------|
-| RF1     | Gestión de proyectos | El sistema debe permitir crear y gestionar proyectos, estableciendo su información básica como nombre, cliente, equipo que lo desarrollará,tipo de contrato y fechas estimadas | Funcional |  | Alta|
-| RF1.1    | Registro de horas trabajadas | El sistema debe permitir registrar las horas trabajadas por proyecto de forma precisa | Funcional | | Alta |
-| RF1.1.1   | Consulta de horas facturadas | Permitir consultar cuántas horas se han trabajado desde la última fecha de facturación | Funcional | RF1.1  | Alta |
-| RF1.2    | Consulta de equipo de proyecto | Consultar qué equipo está asignado a un proyecto específico. | Funcional | RF1 | Media     |
-| RF1.2.1   | Distribución del trabajo por equipo | Consultar cómo se distribuye el trabajo entre los equipos dentro de un proyecto | Funcional   | RF1.2  | Media |
-| RF1.3     | Gestión de costos adicionales | Permitir asignar costos adicionales como licencias, alquileres o capacitaciones por proyecto | Funcional | RF1 | Alta      |
-| RF2 | Gestión de multas | Permitir consultar el monto de multa por incumplimiento de SLA | Funcional |   | Alta   |
-| RF2.1   | Alerta preventiva de SLA | Generar alerta cuando transcurra el 50%-60% del tiempo pactado sin resolver una incidencia | Funcional | RF2   | Alta      |
-| RF3     | Vista general de proyectos | Mostrar lista de proyectos en curso, futuros y terminados, con detalle de horas y equipo asignado | Funcional |  | Media     |
-| RF3.1   | Datos de contrato y equipo | Mostrar tipo de contrato y equipo encargado para cada proyecto en la vista general. | Funcional  | RF3  | Media     |
-| RF4     | Compatibilidad con otras plataformas | Los datos con los que trabajará el esistema deberán poder ser importados o exportados desde otras aplicaciones | Funcional | | Baja |
-| RF4.1    | Integración con CRM y ERP | Integrar datos de cliente, servicio y pagos cruzados desde CRM y ERP | Funcional | RF4       | Baja      |
-| RF4.2     | Compatibilidad con Microsoft Project | Permitir importar y exportar datos hacia/desde Microsoft Project. | Funcional             | RF4 | Baja |
-| RF4.3     | Exportación a Excel | Permitir exportar datos en formato compatible con Excel | Funcional         | RF4     | Baja     |
-| RF5    | Reporte de estado de proyectos | Generar reportes sobre el estado de avance de cada proyecto. | Funcional | RF3   | Baja  |
-| RF6    | Control de cambios | Registrar cambios no pactados y permitir cotización y aceptación por parte del cliente  | Funcional     | RF1      | Alta      |
-| RN1     | Consideración de multas   | Las multas son informativas y no deben descontarse automáticamente en las cotizaciones.         | Regla de negocio       | RF2                                      | Alta      |
-| RU1     | Interfaz amigable y compatibilidad visual con MS Project  | La interfaz debe ser familiar para usuarios acostumbrados a Microsoft Project  | Requisito de usuario   | RF4          | Baja     |
+| ID      | REQUISITO                                                | DESCRIPCIÓN                                                                                                    | CATEGORÍA            | ASOCIACIÓN | PRIORIDAD |
+| ------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------- | ---------- | --------- |
+| RF1     | Crear proyecto                                           | Crear nuevos proyectos, asignando nombre y tipo de contrado                                                    | Funcional            |            | Alta      |
+| RF1.1   | Asignar cliente                                          | Vincular un cliente al proyecto existente                                                                      | Funcional            | RF1        | Alta      |
+| RF1.2   | Fechas estimadas de Proyecto                             | Asignar fecha de inicio y finalización previstas para el proyecto                                              | Funcional            | RF1        | Alta      |
+| RF1.3   | Asignar equipo de proyecto                               | Elegir personas responables del proyecto y sus roles                                                           | Funcional            | RF1        | Alta      |
+| RF1.1   | Registro de horas trabajadas                             | El sistema debe permitir registrar las horas trabajadas por proyecto de forma precisa                          | Funcional            |            | Alta      |
+| RF1.1.1 | Consulta de horas facturadas                             | Permitir consultar cuántas horas se han trabajado desde la última fecha de facturación                         | Funcional            | RF1.1      | Alta      |
+| RF1.2   | Consulta de equipo de proyecto                           | Consultar qué equipo está asignado a un proyecto específico.                                                   | Funcional            | RF1        | Media     |
+| RF1.2.1 | Distribución del trabajo por equipo                      | Consultar cómo se distribuye el trabajo entre los equipos dentro de un proyecto                                | Funcional            | RF1.2      | Media     |
+| RF1.3   | Gestión de costos adicionales                            | Permitir asignar costos adicionales como licencias, alquileres o capacitaciones por proyecto                   | Funcional            | RF1        | Alta      |
+| RF2     | Gestión de multas                                        | Permitir consultar el monto de multa por incumplimiento de SLA                                                 | Funcional            |            | Alta      |
+| RF2.1   | Alerta preventiva de SLA                                 | Generar alerta cuando transcurra el 50%-60% del tiempo pactado sin resolver una incidencia                     | Funcional            | RF2        | Alta      |
+| RF3     | Vista general de proyectos                               | Mostrar lista de proyectos en curso, futuros y terminados, con detalle de horas y equipo asignado              | Funcional            |            | Media     |
+| RF3.1   | Datos de contrato y equipo                               | Mostrar tipo de contrato y equipo encargado para cada proyecto en la vista general.                            | Funcional            | RF3        | Media     |
+| RF4     | Compatibilidad con otras plataformas                     | Los datos con los que trabajará el esistema deberán poder ser importados o exportados desde otras aplicaciones | Funcional            |            | Baja      |
+| RF4.1   | Integración con CRM y ERP                                | Integrar datos de cliente, servicio y pagos cruzados desde CRM y ERP                                           | Funcional            | RF4        | Baja      |
+| RF4.2   | Compatibilidad con Microsoft Project                     | Permitir importar y exportar datos hacia/desde Microsoft Project.                                              | Funcional            | RF4        | Baja      |
+| RF4.3   | Exportación a Excel                                      | Permitir exportar datos en formato compatible con Excel                                                        | Funcional            | RF4        | Baja      |
+| RF5     | Reporte de estado de proyectos                           | Generar reportes sobre el estado de avance de cada proyecto.                                                   | Funcional            | RF3        | Baja      |
+| RF6     | Control de cambios                                       | Registrar cambios no pactados y permitir cotización y aceptación por parte del cliente                         | Funcional            | RF1        | Alta      |
+| RN1     | Consideración de multas                                  | Las multas son informativas y no deben descontarse automáticamente en las cotizaciones.                        | Regla de negocio     | RF2        | Alta      |
+| RU1     | Interfaz amigable y compatibilidad visual con MS Project | La interfaz debe ser familiar para usuarios acostumbrados a Microsoft Project                                  | Requisito de usuario | RF4        | Baja      |
 
 ---
 
@@ -46,7 +49,6 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 
 - **T&M (Time & Materials):**  
   Modelo contractual basado en horas trabajadas y materiales usados, permite flexibilidad en el cobro.
-  
 - **SLA (Service Level Agreement):**  
   Acuerdo contractual que establece tiempos de respuesta y resolución para incidencias o soporte técnico.
 
@@ -59,12 +61,11 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 
 ## Módulos Identificados
 
-| Módulo                         | Descripción                                                                     | Clases principales                                  |
-|--------------------------------|---------------------------------------------------------------------------------|---------------------------------------------------|
-| Gestión de Proyectos           | Crear, planificar, asignar recursos y controlar avances y costos.               | `Proyecto`, `EquipoTrabajo`, `GerenteProyecto`    |
-| Control de Horas               | Registro, validación y consulta de horas trabajadas.                            | `RegistroHoras`, `Empleado`                       |
-| Control de Multas y SLA        | Seguimiento y alertas sobre cumplimiento de SLA y cálculo de multas.            | `Incidente`, `Multa`, `SLA`                       |
-| Gestión de Costos Adicionales  | Registrar y consultar costos asociados al proyecto más allá de horas hombre.    | `CostoAdicional`, `Factura`                       |
-| Integración Externa            | Sincronización de datos con CRM, ERP y Microsoft Project.                       | `IntegracionCRM`, `IntegracionERP`, `MSProject`   |
-| Reportes y Exportaciones       | Generación de reportes y exportación a Excel o MS Project.                      | `Reporte`, `ExportadorExcel`, `ExportadorMSP`     |
-
+| Módulo                        | Descripción                                                                  | Clases principales                              |
+| ----------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------- |
+| Gestión de Proyectos          | Crear, planificar, asignar recursos y controlar avances y costos.            | `Proyecto`, `EquipoTrabajo`, `GerenteProyecto`  |
+| Control de Horas              | Registro, validación y consulta de horas trabajadas.                         | `RegistroHoras`, `Empleado`                     |
+| Control de Multas y SLA       | Seguimiento y alertas sobre cumplimiento de SLA y cálculo de multas.         | `Incidente`, `Multa`, `SLA`                     |
+| Gestión de Costos Adicionales | Registrar y consultar costos asociados al proyecto más allá de horas hombre. | `CostoAdicional`, `Factura`                     |
+| Integración Externa           | Sincronización de datos con CRM, ERP y Microsoft Project.                    | `IntegracionCRM`, `IntegracionERP`, `MSProject` |
+| Reportes y Exportaciones      | Generación de reportes y exportación a Excel o MS Project.                   | `Reporte`, `ExportadorExcel`, `ExportadorMSP`   |
