@@ -37,7 +37,6 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 | RF2.1   | Alerta preventiva de SLA                                 | Generar alerta cuando transcurra el 50%-60% del tiempo pactado sin resolver una incidencia                       | Funcional            | RF2        | Alta      |
 | RF3     | Vista general de proyectos                               | Mostrar información resumida de proyectos en curso, futuros y terminados, con detalle de horas y equipo asignado | Funcional            |            | Media     |
 | RF3.1   | Datos de contrato y equipo                               | Mostrar tipo de contrato y equipo encargado para cada proyecto en la vista general.                              | Funcional            | RF3        | Media     |
-| RNF4    | Compatibilidad con otras plataformas                     | Los datos con los que trabajará el sistema deberán poder ser importados o exportados desde otras aplicaciones    | No Funcional         |            | Baja      |
 | RF4.1   | Integración con CRM y ERP                                | Integrar datos de cliente, servicio y pagos cruzados desde CRM y ERP                                             | Funcional            | RF4        | Baja      |
 | RF4.2   | Intercambio de datos con Microsoft Project               | Importar y exportar información de planificación y seguimiento hacia y desde Microsoft Project.                  | Funcional            | RF4        | Baja      |
 | RF4.3   | Exportación a Excel                                      | Permitir exportar datos en formato compatible con Excel                                                          | Funcional            | RF4        | Baja      |
@@ -45,6 +44,7 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 | RF6     | Control de cambios                                       | Registrar cambios no pactados y permitir cotización y aceptación por parte del cliente                           | Funcional            | RF1        | Alta      |
 | RN1     | Consideración de multas                                  | Las multas son informativas y no deben descontarse automáticamente en las cotizaciones.                          | Regla de negocio     | RF2        | Alta      |
 | RU1     | Interfaz amigable y compatibilidad visual con MS Project | La interfaz debe ser familiar para usuarios acostumbrados a Microsoft Project                                    | Requisito de usuario | RF4        | Baja      |
+| RNF1    | Compatibilidad con otras plataformas                     | Los datos con los que trabajará el sistema deberán poder ser importados o exportados desde otras aplicaciones    | No Funcional         |            | Baja      |
 
 ---
 
