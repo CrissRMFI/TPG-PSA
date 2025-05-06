@@ -19,9 +19,9 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 
 ### Matriz de trazabilidad
 
-| ID      | REQUISITO                                                | DESCRIPCIÓN                                                                                                      | CATEGORÍA            | ASOCIACIÓN | PRIORIDAD |
-| ------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------- | ---------- | --------- |
-| RF1     | Crear proyecto                                           | Crear nuevos proyectos, asignando nombre y tipo de contrado                                                      | Funcional            |            | Alta      |
+| ID      | REQUISITO                                                | DESCRIPCIÓN                                                                                                      | CATEGORÍA            | ASOCIACIÓN | PRIORIDAD | INTERESADO/S |
+| ------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------- | ---------- | --------- | ------------ |
+| RF1     | Crear proyecto                                           | Crear nuevos proyectos, asignando nombre y tipo de contrado                                                      | Funcional            |            | Alta      |              |
 | RF1.1   | Asignar cliente                                          | Vincular un cliente al proyecto existente                                                                        | Funcional            | RF1        | Alta      |
 | RF1.2   | Fechas estimadas de Proyecto                             | Asignar fecha de inicio y finalización previstas para el proyecto                                                | Funcional            | RF1        | Alta      |
 | RF1.3   | Asignar equipo de proyecto                               | Elegir personas responables del proyecto y sus roles                                                             | Funcional            | RF1        | Alta      |
