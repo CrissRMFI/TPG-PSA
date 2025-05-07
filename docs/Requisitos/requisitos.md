@@ -47,7 +47,7 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 | RF9     | Asociar requerimientos con tareas             | Relacionar cada requerimiento con una o más tareas específicas                                                   | Funcional | RF8        | Media     | [Maximiliano Gantt](../Minutas/minuta-MaximilianoGantt-24042025.md) |
 
 | RN1 | Consideración de multas | Las multas son informativas y no deben descontarse automáticamente en las cotizaciones. | Regla de negocio | RF2 | Alta | [Roberto Rattio](../Minutas/minuta-RobertoRatio-10042025.md) |
-| RU1 | Interfaz amigable y compatibilidad visual con MS Project | La interfaz debe ser familiar para usuarios acostumbrados a Microsoft Project | Requisito de usuario | RF4 | Baja |
+| RU1 | Interfaz familiar para usuarios de MS Project | La interfaz del sistema deberá ser familiar para usuarios acostumbrados a Microsoft Project. | RF4.1 | Baja | [Augusto Aguanti](../Minutas/minuta-AugustoAguanti-24042025.md)|
 | RNF1 | Compatibilidad con otras plataformas | Los datos con los que trabajará el sistema deberán poder ser importados o exportados desde otras aplicaciones | No Funcional | | Baja | [Gustavo Cuccina](../Minutas/minuta-GustavoCuccina-24042025.md) |
 
 ---
