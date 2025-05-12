@@ -17,7 +17,7 @@ Desarrollar un sistema propio e integrado para gestionar proyectos y soporte den
 
 ## 🧭 Visión del producto
 
-El sistema PMTool será una plataforma integral para la **gestión de proyectos y soporte**, desarrollada por PSA para unificar procesos actualmente fragmentados, mejorar la eficiencia operativa y permitir una visión estratégica del portafolio de iniciativas de la compañía. A futuro, se proyecta su evolución como producto comercializable dentro del ecosistema de soluciones PSA.
+El sistema será una plataforma integral para la **gestión de proyectos y soporte**, desarrollada por PSA para unificar procesos actualmente fragmentados, mejorar la eficiencia operativa y permitir una visión estratégica del portafolio de iniciativas de la compañía. A futuro, se proyecta su evolución como producto comercializable dentro del ecosistema de soluciones PSA.
 
 ### 🧱 Objetivos principales
 
