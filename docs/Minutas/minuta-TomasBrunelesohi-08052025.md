@@ -1,6 +1,6 @@
 # 📝 Minuta de Reunión – Product Owner (Proyecto PSA)
 
-**📅 Fecha:** 24/04/2025  
+**📅 Fecha:** 08/05/2025  
 **👤 Participante principal:** Product Owner del sistema PSA - Tomas Brunelesohi
 **🎯 Objetivo:** Establecer el alcance funcional y las prioridades del MVP, definiendo los módulos principales que deberá cubrir el sistema en su primera versión.
 
