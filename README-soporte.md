@@ -35,7 +35,9 @@ A desarrollar...
 
 - [Minuta de reunión 08/05/2025 - Tomas Bruneleschi (Product Owner / Proyecto PSA)](docs/Minutas/minuta-TomasBrunelesohi-08052025.md)
 
-## 1.4.4 Onion Model
+## 1.4.4 Análisis de Interesados
+- [Onion Model](./docs/Dominio/onionModel.md)
+
 ## 1.4.5 Modelo de Dominio
 ## 1.4.6 Análisis de Requisitos
 ## 1.4.7 Documentos externos
