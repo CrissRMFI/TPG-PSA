@@ -61,20 +61,26 @@ Descripción de los contenidos del documento de visión
 ---
 
 ### 2. Posicionamiento 
-### 🧠 Visión del producto
+### 2.1 Oportunidad de negocio
+
+Este proyecto se centra en aprovechar las necesidades operativas del área de Soporte a Clientes para mejorar la eficiencia, reducir costos y aumentar la satisfacción del cliente, lo que puede traducirse en una ventaja competitiva para la empresa.
+
+### 2.2 El Problema
+
+La resolución ineficiente de incidentes debido a la falta de información precisa sobre el entorno de los clientes, la pobre integración con el Área de Desarrollo y la gestión inadecuada de SLA afecta al equipo de Soporte, al equipo de Desarrollo y a los clientes de la empresa. El impacto del problema es retrasos en la resolución de incidentes, aumento de la carga de trabajo manual, posibles incumplimientos de SLA que derivan en penalizaciones económicas y una menor satisfacción del cliente. Una solución exitosa incluiría el registro automático de las versiones de software y módulos personalizados de los clientes, una integración fluida con Desarrollo para la derivación directa de tareas y trazabilidad completa, el seguimiento automatizado de SLA con alertas en tiempo real, un historial detallado de tickets para optimizar recursos y un sistema de categorización priorizado basado en severidad y condiciones del cliente.
+
+### 2.3 La Solución 
+
+Para los equipos de soporte a clientes y desarrollo de empresas con contratos SLA, que necesitan mejorar la eficiencia en la resolución de incidentes y cumplir con acuerdos de nivel de servicio bajo presión operativa. El Sistema de Gestión de Soporte es una plataforma integrada de gestión de tickets que ofrece un registro automático del entorno del cliente, integración fluida con Desarrollo, seguimiento en tiempo real de SLA con alertas automáticas, historial detallado de tickets y categorización priorizada, garantizando una atención rápida y confiable. A diferencia de las soluciones de gestión de tickets tradicionales, nuestro producto se diferencia por su enfoque en la automatización de procesos críticos y la trazabilidad completa, reduciendo la carga manual y minimizando penalizaciones económicas.
+
+---
+### 🧠 Funcionalidades previstas
 
 El sistema posee un módulo dedicado a la **gestión soporte**, con el objetivo de mejorar la administración y el seguimiento de los tickets generados por el equipo de soporte, enfocado en la detección de demoras y eliminar ineficiencias en el proceso.
-
-
-### 🧱 Objetivos principales
 
 - Asegurar la **trazabilidad completa** de cada ticket a través de un historial, según el cliente y el producto asociado.
 - Facilitar la **clasificación** de tickets por estado y naturaleza de los mismos.
 - Brindar una solución para que las distintas áreas de la empresa mejoren su gestión de tickets con **integración** a la gestion proyectos y sus actividades. 
-
----
-
-### 🧠 Funcionalidades previstas
 
 El módulo es el de **Gestión de Soporte** con funcionalidades de seguimiento, reportes y trazabilidad.
 
