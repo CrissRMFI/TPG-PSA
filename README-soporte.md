@@ -19,6 +19,7 @@ A desarrollar...
 
 ## 1.4 Referencias
 ## 1.4.1 Organigrama
+
 - [Organigrama de la Empresa PSA](./docs/Organigrama/organigrama.md)
 
 ## 1.4.2 Minutas de Reunión
@@ -36,12 +37,19 @@ A desarrollar...
 - [Minuta de reunión 08/05/2025 - Tomas Bruneleschi (Product Owner / Proyecto PSA)](docs/Minutas/minuta-TomasBrunelesohi-08052025.md)
 
 ## 1.4.4 Análisis de Interesados
+
 - [Onion Model](./docs/Dominio/onionModel.md)
 
 ## 1.4.5 Modelo de Dominio
+
+- [Modelo de Dominio](./docs/Dominio/mdd.md)
+
 ## 1.4.6 Análisis de Requisitos
+
 - [Matriz de Trazabilidad - Gestión de Proyectos y Soporte](./docs/Requisitos/requisitos.md)
+
 ## 1.4.7 Documentos externos
+
 - [Presentación de Visión PSA - Tomas Bruneleschi (Product Owner / Proyecto PSA)](https://docs.google.com/presentation/d/1RKjXip65SFtVxiFx2X7nD-ORf1ZTkyG8f94DVdFbizw/edit?usp=sharing)
 
 ## 1.5  Descripción General
