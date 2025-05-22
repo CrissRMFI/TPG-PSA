@@ -1,24 +1,25 @@
 # Proyecto PSA – Sistema de Gestión de Proyectos y Soporte
 
-## 📌 Propósito del proyecto
+## 1. Introducción
+## 1.1 Finalidad
 
-Desarrollar el módulo de soporte parte del Sistema de Gestión de Proyectos y Soporte dedicado al soporte dentro del producto a desarrollar.
-
----
-
-## 🧩 Contexto actual
-
-- PSA está en un proceso de expansión regional.
-- Cada área usa herramientas distintas para gestión tickets de soporte.
-- La falta de integración de las distintas áreas respecto a las análiticas de soporte genera esfuerzo manual para consolidar datos críticos (costos, avances, facturación, etc.).
+Desarrollar funcionalidades el módulo de soporte aportando una solución para los equipos de soporte que son parte de proyectos, cuyas necesidades fueron relevadas bajo un análisis de la empresa PSA. 
 
 ---
 
-## 🧭 Definiciones 
+## 1.2 Alcance
+
+El Modulo de Soporte es parte de la herramienta utilizada para Gestión de Proyectos y Soporte, producto derivado de la necesidad de la empresa PSA, que busca con este producto continuar un proceso de expansión regional. Cada área de la empresa usa herramientas distintas para gestión tickets de soporte y la principal idea es unificar las tareas de soporte por medio de la herramienta e integrarla con la gestión de proyectos. Además se busca una integración de las distintas áreas respecto a las análiticas de soporte genera esfuerzo manual para consolidar datos críticos (costos, avances, facturación, etc.).
+
+---
+
+## 1.3 Definiciones, siglas, definiciones
 
 A desarrollar...
 
-## 📋 Referencias
+## 1.4 Referencias
+## 1.4.1 Organigrama
+## 1.4.2 Minutas de Reunión
 
 - [Minuta de reunión 07/04/2025 - Juan Zeo (Gerente General)](./docs/minutas/minuta-JuanZeo-07042025.md)
 
@@ -32,14 +33,19 @@ A desarrollar...
 
 - [Minuta de reunión 08/05/2025 - Tomas Bruneleschi (Product Owner / Proyecto PSA)](docs/Minutas/minuta-TomasBrunelesohi-08052025.md)
 
-## 🧭 Descripción General
+## 1.4.4 Onion Model
+## 1.4.5 Modelo de Dominio
+## 1.4.6 Análisis de Requisitos
+## 1.4.7 Documentos externos
+- [Presentación de Visión PSA - Tomas Bruneleschi (Product Owner / Proyecto PSA)](https://docs.google.com/presentation/d/1RKjXip65SFtVxiFx2X7nD-ORf1ZTkyG8f94DVdFbizw/edit?usp=sharing)
+
+## 1.5  Descripción General
 
 A desarrollar...
 
-
 ---
 
-## 🧭 Visión del producto
+### 🧠 Visión del producto
 
 El sistema posee un módulo dedicado a la **gestión soporte**, con el objetivo de mejorar la administración y el seguimiento de los tickets generados por el equipo de soporte, enfocado en la detección de demoras y eliminar ineficiencias en el proceso.
 
