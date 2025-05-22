@@ -40,6 +40,7 @@ A desarrollar...
 
 ## 1.4.5 Modelo de Dominio
 ## 1.4.6 Análisis de Requisitos
+- [Matriz de Trazabilidad - Gestión de Proyectos y Soporte](./docs/Requisitos/requisitos.md)
 ## 1.4.7 Documentos externos
 - [Presentación de Visión PSA - Tomas Bruneleschi (Product Owner / Proyecto PSA)](https://docs.google.com/presentation/d/1RKjXip65SFtVxiFx2X7nD-ORf1ZTkyG8f94DVdFbizw/edit?usp=sharing)
 
