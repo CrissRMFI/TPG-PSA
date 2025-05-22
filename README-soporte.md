@@ -40,11 +40,14 @@ A desarrollar...
 - [Presentación de Visión PSA - Tomas Bruneleschi (Product Owner / Proyecto PSA)](https://docs.google.com/presentation/d/1RKjXip65SFtVxiFx2X7nD-ORf1ZTkyG8f94DVdFbizw/edit?usp=sharing)
 
 ## 1.5  Descripción General
+Descripción de los contenidos del documento de visión
 
-A desarrollar...
+- 2. **Posicionamiento**: Se comunica la intención de la aplicación y la importancia del proyecto para todos los interesados.
+
 
 ---
 
+### 2. Posicionamiento 
 ### 🧠 Visión del producto
 
 El sistema posee un módulo dedicado a la **gestión soporte**, con el objetivo de mejorar la administración y el seguimiento de los tickets generados por el equipo de soporte, enfocado en la detección de demoras y eliminar ineficiencias en el proceso.
