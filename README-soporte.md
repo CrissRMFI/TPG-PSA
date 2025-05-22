@@ -3,7 +3,7 @@
 ## 1. Introducción
 ## 1.1 Finalidad
 
-Desarrollar funcionalidades el módulo de soporte aportando una solución para los equipos de soporte que son parte de proyectos, cuyas necesidades fueron relevadas bajo un análisis de la empresa PSA. 
+Desarrollar funcionalidades el módulo de soporte aportando una solución para los equipos de soporte que son parte de proyectos, cuyas necesidades fueron relevadas bajo un análisis de la empresa Praxis Systems Argentina. 
 
 ---
 
@@ -19,6 +19,8 @@ A desarrollar...
 
 ## 1.4 Referencias
 ## 1.4.1 Organigrama
+- [Organigrama de la Empresa PSA](./docs/Organigrama/organigrama.md)
+
 ## 1.4.2 Minutas de Reunión
 
 - [Minuta de reunión 07/04/2025 - Juan Zeo (Gerente General)](./docs/minutas/minuta-JuanZeo-07042025.md)
