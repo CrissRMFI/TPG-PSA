@@ -48,7 +48,59 @@ PSA Project Manager es una aplicación orientada a la gestión eficiente de proy
 | BUS-04 | Consolidar gestión de proyectos          | El sistema debe permitir centralizar la planificación, avance y control de los proyectos activos.                                                   | Negocio              | [Maximiliano Gantt](../Minutas/minuta-MaximilianoGantt-24042025.md) | Alta      |
 
 ---
+A continuacion se describen los estados por los que puede atravesar un ticket en el modulo de soporte, junto con las condiciones validas para su transicion.
 
+---
+
+### 🟢 Estado: NUEVO
+
+- **Descripcion**: El ticket fue registrado pero aun no se comenzo a tratar.
+- **Transiciones posibles**:
+  - `NUEVO → EN_PROGRESO`: el soporte de nivel 1 comienza a trabajar en el incidente.
+
+---
+
+### 🔵 Estado: EN_PROGRESO
+
+- **Descripcion**: El analista de soporte esta trabajando activamente en el ticket.
+- **Transiciones posibles**:
+  - `EN_PROGRESO → ESCALADO`: el soporte de nivel 1 no puede resolverlo y lo deriva a un nivel superior.
+  - `EN_PROGRESO → RESUELTO`: el soporte de nivel 1 logra resolver el incidente sin necesidad de escalar.
+
+---
+
+### 🟣 Estado: ESCALADO
+
+- **Descripcion**: El ticket fue derivado a un soporte de nivel superior (nivel 2 o 3).
+- **Transiciones posibles**:
+  - `ESCALADO → RESUELTO`: el incidente fue resuelto por el equipo especializado.
+
+---
+
+### ✅ Estado: RESUELTO
+
+- **Descripcion**: El incidente se considera solucionado. El ticket se cierra.
+
+
+### 🏁 Estado: CERRADO
+
+- **Descripcion**: El ticket ha sido cerrado de forma definitiva, ya sea por validacion explicita del cliente o por cierre automatico tras un periodo sin respuesta.
+- **Transiciones posibles**:
+  - No admite transiciones posteriores.
+  - Cualquier reapertura deberia generar un nuevo ticket.
+
+---
+
+### ❌ Transiciones no permitidas
+
+| Desde        | Hacia         | Motivo                                                                 |
+|--------------|---------------|------------------------------------------------------------------------|
+| RESUELTO     | EN_PROGRESO   | Una vez resuelto, no se vuelve a trabajar sobre el mismo ticket       |
+| ESCALADO     | EN_PROGRESO   | No se puede desescalar un ticket ya derivado                          |
+| NUEVO        | ESCALADO      | El ticket debe ser abordado antes de ser escalado                     |
+| CERRADO      | Cualquier otro| El ticket cerrado es final. No se puede modificar ni reabrir          |
+
+---
 ## Glosario
 
 - **T&M (Time & Materials):**  
