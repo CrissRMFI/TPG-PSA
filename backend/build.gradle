@@ -1,0 +1,30 @@
+plugins {
+  id 'java'
+  id 'org.springframework.boot' version '3.3.12'
+  id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.psa'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+  // Cucumber
+  testImplementation 'io.cucumber:cucumber-java:7.11.2'
+  testImplementation 'io.cucumber:cucumber-junit:7.11.2'
+  testImplementation 'junit:junit:4.13.2'
+}
+
+test {
+  useJUnit()
+}
