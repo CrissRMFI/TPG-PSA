@@ -16,17 +16,11 @@ Feature: Cambio de estado
     | ESCALADO      | RESUELTO    |
     | RESUELTO      | CERRADO    |
 
-  Scenario: No se permite cambiar de estado de "Resuelto" a "En progreso"
-    Given existe un ticket con estado "Resuelto"
-    When el soporte intenta cambiar su estado a "En progreso"
-    Then el cambio no se realiza
-    And se informa que la transicion no es valida
-
   Scenario Outline: No se permite cambiar estado de "<estadoInicial>" a "<estadoFinal>"
     Given existe un ticket con estado "<estadoInicial>"
     When el soporte intenta cambiar su estado a "<estadoFinal>"
     Then se imforma un mensaje indicando que no es posible ese cambio de estado
-    And el tiket permanece en "<estadoInicial>"
+    And el ticket permanece en "<estadoInicial>"
 
     Examples:
       | estadoInicial | estadoFinal |
