@@ -53,7 +53,7 @@ No interactúan con el sistema directamente, pero son influenciados por él o lo
 - Vendedores
 - Analistas de Marketing
 
-## ![Onion Model](<R1.2 Onion Model.png>)
+## ![Onion Model](<img/R1.2 Onion Model.png>)
 
 [figma.com/R1.2-OnionModel](https://www.figma.com/design/F0SGrgwunPUi7RblxnMZny/R1.2-Onion-Model?node-id=0-1&t=NHcL0pkH9tGpiTU9-1) .
 

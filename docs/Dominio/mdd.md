@@ -4,4 +4,4 @@ Este modelo representa las entidades principales del sistema a desarrollar para 
 
 ## Diagrama de dominio
 
-![Fig 1. MDD](mdd.png)
+![Fig 1. MDD](img/mdd.png)
