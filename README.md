@@ -33,44 +33,45 @@ A continuacion se listan los modulos funcionales correspondientes a cada uno de 
 
 ### 📦 PSA ERP
 
-| Modulo funcional      | Descripcion                                      |
-|-----------------------|--------------------------------------------------|
-| Contabilidad          | Gestion de asientos contables y balances        |
-| Tesoreria             | Pagos, cobranzas y conciliaciones bancarias     |
-| Compras               | Solicitudes y ordenes de compra                 |
-| Ventas                | Facturacion y gestion de remitos                |
-| Inventario            | Control de stock, entradas y salidas            |
-| Proyectos             | Planificacion y seguimiento de proyectos        |
-| Recursos Humanos      | Liquidacion de sueldos, legajos, ausencias      |
-| Reportes              | Informes administrativos y financieros          |
+| Modulo funcional | Descripcion                                 |
+| ---------------- | ------------------------------------------- |
+| Contabilidad     | Gestion de asientos contables y balances    |
+| Tesoreria        | Pagos, cobranzas y conciliaciones bancarias |
+| Compras          | Solicitudes y ordenes de compra             |
+| Ventas           | Facturacion y gestion de remitos            |
+| Inventario       | Control de stock, entradas y salidas        |
+| Proyectos        | Planificacion y seguimiento de proyectos    |
+| Recursos Humanos | Liquidacion de sueldos, legajos, ausencias  |
+| Reportes         | Informes administrativos y financieros      |
 
 ---
 
 ### 📇 PSA CRM
 
-| Modulo funcional      | Descripcion                                      |
-|-----------------------|--------------------------------------------------|
-| Gestion de clientes   | Alta, baja y modificacion de datos de clientes  |
-| Seguimiento comercial | Seguimiento de oportunidades y contactos        |
-| Agenda                | Tareas, reuniones y compromisos comerciales     |
-| Campañas              | Gestion de campañas de marketing                |
-| Reclamos              | Atencion postventa y soporte al cliente         |
+| Modulo funcional      | Descripcion                                    |
+| --------------------- | ---------------------------------------------- |
+| Gestion de clientes   | Alta, baja y modificacion de datos de clientes |
+| Seguimiento comercial | Seguimiento de oportunidades y contactos       |
+| Agenda                | Tareas, reuniones y compromisos comerciales    |
+| Campañas              | Gestion de campañas de marketing               |
+| Reclamos              | Atencion postventa y soporte al cliente        |
 
 ---
 
 ### 📊 PSA Business Analytics
 
-| Modulo funcional         | Descripcion                                       |
-|--------------------------|---------------------------------------------------|
-| Paneles de control       | Visualizacion grafica de indicadores              |
-| Reportes financieros     | Generacion de reportes personalizables            |
-| Integracion de datos     | Conexion con ERP, CRM y otras fuentes             |
-| Analisis predictivo      | Proyecciones, escenarios y tendencias             |
-| Exportacion de informes  | Descarga en Excel, PDF u otros formatos           |
+| Modulo funcional        | Descripcion                             |
+| ----------------------- | --------------------------------------- |
+| Paneles de control      | Visualizacion grafica de indicadores    |
+| Reportes financieros    | Generacion de reportes personalizables  |
+| Integracion de datos    | Conexion con ERP, CRM y otras fuentes   |
+| Analisis predictivo     | Proyecciones, escenarios y tendencias   |
+| Exportacion de informes | Descarga en Excel, PDF u otros formatos |
 
 ---
 
 > Esta clasificacion permite asociar cada ticket registrado a su producto y modulo correspondiente, facilitando su tratamiento y seguimiento.
+
 ---
 
 ### 🧠 Funcionalidades previstas
@@ -92,9 +93,10 @@ El sistema se compondrá de dos módulos principales interrelacionados: **Gesti�
 - Historial completo por ticket, por cliente y por producto.
 - Visualización de tickets activos, vencidos, resueltos y reabiertos.
 
-#### 3. Otras funcionalidades 
+#### 3. Otras funcionalidades
 
 - Preparación para integración con PSA Spring ERP, permitiendo futura conexión con módulos de facturación, compras y gestión financiera.
+
 ---
 
 ### 🌍 Proyección comercial
@@ -111,6 +113,7 @@ Aunque inicialmente será usado internamente, el sistema está siendo diseñado 
 - **Mayor eficiencia operativa** en las áreas de proyectos y soporte.
 - **Visibilidad unificada de proyectos**, facilitando la priorización y gestión estratégica.
 - **Mejora en la experiencia del cliente**, a través de una atención de soporte más ordenada, trazable y medible.
+
 ---
 
 ## 📅 Línea de tiempo esperada
