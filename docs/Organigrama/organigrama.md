@@ -25,8 +25,8 @@ graph TB
   A --> D[Gerencia de Ventas<br>Juan Anvizzio]
   A --> E[Gerencia de Administración y Finanzas<br>Roberto Ratio]
 
-  B --> B1[Desarrollo de productos]
-  B --> B2[Jefe de Implementaciones<br>Guatavo Cuccina]
+  B --> B1[Área de Desarrollo / Gestión de proyectos<br>Maximiliano Gantt]
+  B --> B2[Jefe de Implementaciones<br>Gustavo Cuccina]
   B --> B3[Soporte a clientes<br> Augusto Aguanti]
   B --> B4[Infraestructura tecnológica]
 
