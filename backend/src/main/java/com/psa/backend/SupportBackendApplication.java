@@ -22,7 +22,7 @@ public class SupportBackendApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/tickets").allowedOrigins("https://localhost:8443");
+				registry.addMapping("/ticket").allowedOrigins("https://localhost:8443");
 				registry.addMapping("/external/clients").allowedOrigins("https://localhost:8443");
 				registry.addMapping("/external/resources").allowedOrigins("https://localhost:8443");
 			}
