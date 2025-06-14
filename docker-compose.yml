@@ -1,0 +1,33 @@
+services:
+  app_support_module:
+      build: backend
+      mem_limit: 512m
+      ports:
+        - "8443:8443"
+      environment:  
+        DB_URL: jdbc:mysql://db_soporte:3306/modulo_soporte
+        DB_USER_NAME: root
+        DB_PASSWORD: 1234
+        DB_PLATFORM: org.hibernate.dialect.MySQLDialect
+        EXT_API_CLIENTS: https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/754f50e8-20d8-4223-bbdc-56d50131d0ae/clientes-psa/1.0.0/m/api/clientes
+        EXT_API_RESOURCES: https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/32c8fe38-22a6-4fbb-b461-170dfac937e4/recursos-api/1.0.1/m/recursos
+        API_CONTEXT_PATH: /support-module
+      restart: always
+      depends_on:
+          db_soporte:
+            condition: service_healthy
+  db_soporte:
+      image: mysql:8.0.33
+      ports:
+        - "3307:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: 1234
+        MYSQL_PASSWORD: 1234
+        MYSQL_DATABASE: modulo_soporte
+      restart: always
+      healthcheck:
+         test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+         timeout: 10s
+         retries: 10
+
+
