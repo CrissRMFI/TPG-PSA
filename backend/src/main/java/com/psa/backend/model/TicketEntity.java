@@ -3,15 +3,10 @@ package com.psa.backend.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import com.psa.backend.enums.TicketPriorityScaleEnum;
+import com.psa.backend.enums.TicketSeverityScaleEnum;
+import com.psa.backend.enums.TicketStateEnum;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -27,24 +22,39 @@ public class TicketEntity {
     Long id;
     // Codigo del Ticket 
 
+    @Column(name = "VA_NOMBRE", nullable = false)
+    private String nombre;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "VA_PRIORIDAD", nullable = false)
+    private TicketPriorityScaleEnum prioridad;
+
     @Column(name = "VA_TICKET_CODE", nullable = false)
-    String code;
+    String codigo;
+
+    @Column(name = "ID_CLIENTE", nullable = false)
+    private Long idCliente;
+
+    @Column(name = "ID_PRODUCTO", nullable = false)
+    private Long idProducto;
+
+    @Column(name = "VA_VERSION", nullable = false)
+    private String version;
 
     @Column(name = "VA_DESCRIPTION")
-    String description;
+    String descripcion;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "NM_SEVERITY", nullable = false)
-    Integer severityLevel;
+    TicketSeverityScaleEnum severidad;
 
-    @Column(name = "VA_CLIENT_ID", nullable = false)
-    String clientId;
+    @Column(name = "ID_RESPONSABLE")
+    private Long idResponsable;
 
-    @Column(name = "VA_ASIGNED_EMPLOYEE_ID") //TODO: SIEMPRE SE LE ASIGNA?
-    String asignedEmployeeId;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "VA_ESTADO", nullable = false)
+    private TicketStateEnum estado;
 
-    @Column(name = "VA_PROJECT_ID", nullable = false)
-    String projectId;
-
-    @OneToMany(fetch = FetchType.LAZY,  mappedBy = "ticketId") //TODO: SIEMPRE TIENE UNA TAREA??
-    List<TicketTaskRelationEntity> taskIds = new ArrayList();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ticket", cascade = CascadeType.ALL)
+    List<TicketTaskRelationEntity> tareas = new ArrayList();
 }

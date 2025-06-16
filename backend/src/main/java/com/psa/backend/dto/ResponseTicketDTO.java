@@ -2,19 +2,24 @@ package com.psa.backend.dto;
 
 import com.psa.backend.dto.external.ResponseResourceDTO;
 
+import com.psa.backend.enums.TicketPriorityScaleEnum;
+import com.psa.backend.enums.TicketSeverityScaleEnum;
+import com.psa.backend.enums.TicketStateEnum;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
 public class ResponseTicketDTO {
-    Long internalId;
-    String codigo;
-    String severidad;
-    String impacto;
-    String descripcion;
-    ResponseResourceDTO responsable; // Empleado responsable
-    //Long idInformador; Reemplazar por ClienteDTO
-    //Long idVersionProducto; Reemplazar por ProductoDTO
-    //Long idTarea; Reemplazar por TareaDTO
+    private Long internalId;
+    private String codigo;
+    private String nombre;
+    private TicketPriorityScaleEnum prioridad;
+    private TicketSeverityScaleEnum severidad;
+    private TicketStateEnum estado;
+    private String descripcion;
+    private String version;
+    private Long idCliente;
+    private Long idProducto;
+    private Long idResponsable;
 }
