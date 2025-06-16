@@ -24,7 +24,7 @@ import com.psa.backend.model.TicketEntity;
 import com.psa.backend.services.external.ResourceService;
 import com.psa.backend.services.TicketService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 @RequestMapping("ticket")
 public class TicketResource {
