@@ -26,7 +26,7 @@ import com.psa.backend.services.TicketService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("ticket")
+@RequestMapping("/ticket")
 public class TicketResource {
     @Autowired 
     public TicketService ticketService;
