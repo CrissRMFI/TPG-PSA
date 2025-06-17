@@ -7,7 +7,7 @@ import java.util.Map;
 public enum TicketPriorityScaleEnum {
     HIGH_PRIORITY(1,"ALTA"),
     MEDIUM_PRIORITY(2,"MEDIA"),
-    LOW_PROORITY(3,"BAJA");
+    LOW_PRIORITY(3,"BAJA");
 
     private Integer id;
     private String es_translation;
