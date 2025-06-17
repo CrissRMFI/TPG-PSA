@@ -122,12 +122,9 @@ public class TicketService {
                 .build();
     }
 
+    @Transactional(readOnly = true)
     public List<ResponseTicketDTO> getTicketsPorProductoYVersion(String idProducto, String version) {
-        return ticketDao.findAll().stream()
-                .filter(t -> t.getIdProducto().equals(idProducto))
-                .filter(t -> t.getVersion().equals(version))
-                .map(this::convertToDTO)
-                .toList();
+        return ticketDao.findAllByIdProductoYVersion(idProducto, version).map(this::convertToDTO).toList();
     }
 
     public ResponseTicketDTO getById(String id) throws Exception {
