@@ -1,12 +1,12 @@
 # Stage 1: Build
-FROM openjdk:lastest AS builder
+FROM openjdk:17-jdk-slim AS builder
 
 COPY . .
 
 RUN ./gradlew clean build
 
 # Stage 2: Run
-FROM openjdk:lastest AS runner
+FROM openjdk:17-jdk-slim AS runner
 
 USER 1000
 
