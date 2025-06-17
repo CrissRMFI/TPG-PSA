@@ -1,8 +1,19 @@
-FROM openjdk:17-jdk-slim
+# Stage 1: Build
+FROM openjdk:lastest AS builder
 
-ARG JAR_FILE=build/libs/backend-0.0.1-SNAPSHOT.jar
+COPY . .
 
-COPY ${JAR_FILE} /app/app-modulo-soporte.jar
+RUN ./gradlew clean build
+
+# Stage 2: Run
+FROM openjdk:lastest AS runner
+
+USER 1000
+
+ARG JAR_FILE=build/libs/*.jar
+
+COPY --from=builder ${JAR_FILE} app/app-modulo-soporte.jar
+
 COPY src/main/resources/keystore.p12 /app/keystore.p12
 
 EXPOSE 8443
