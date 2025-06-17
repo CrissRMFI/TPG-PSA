@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Builder
 public class ResponseTicketDTO {
-    private Long internalId;
+    private String internalId;
     private String codigo;
     private String nombre;
     private TicketPriorityScaleEnum prioridad;
@@ -19,7 +19,7 @@ public class ResponseTicketDTO {
     private TicketStateEnum estado;
     private String descripcion;
     private String version;
-    private Long idCliente;
-    private Long idProducto;
-    private Long idResponsable;
+    private String idCliente;
+    private String idProducto;
+    private String idResponsable;
 }

@@ -15,12 +15,8 @@ import lombok.EqualsAndHashCode;
 @Data
 public class TicketEntity {
     @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sec_ticket_id")
-    @SequenceGenerator(name = "sec_ticket_id", sequenceName = "sec_ticket_id", allocationSize = 1)
     @Column(name = "NMSEC_TICKET_Id", nullable = false, unique = true)
-    Long id;
-    // Codigo del Ticket 
+    String id;
 
     @Column(name = "VA_NOMBRE", nullable = false)
     private String nombre;
@@ -33,10 +29,10 @@ public class TicketEntity {
     String codigo;
 
     @Column(name = "ID_CLIENTE", nullable = false)
-    private Long idCliente;
+    private String idCliente;
 
     @Column(name = "ID_PRODUCTO", nullable = false)
-    private Long idProducto;
+    private String idProducto;
 
     @Column(name = "VA_VERSION", nullable = false)
     private String version;
@@ -49,7 +45,7 @@ public class TicketEntity {
     TicketSeverityScaleEnum severidad;
 
     @Column(name = "ID_RESPONSABLE")
-    private Long idResponsable;
+    private String idResponsable;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "VA_ESTADO", nullable = false)

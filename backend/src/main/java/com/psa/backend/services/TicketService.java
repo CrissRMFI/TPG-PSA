@@ -1,9 +1,11 @@
 package com.psa.backend.services;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.psa.backend.dao.TicketDAO;
@@ -49,6 +51,7 @@ public class TicketService {
 
     private TicketEntity crearDesdeDTO(RequestTicketDTO dto) {
         TicketEntity ticket = new TicketEntity();
+        ticket.setId(UUID.randomUUID().toString());
         ticket.setNombre(dto.getNombre());
         ticket.setPrioridad(dto.getPrioridad());
         ticket.setSeveridad(dto.getSeveridad());
@@ -80,40 +83,58 @@ public class TicketService {
         return old;
     }
 
-
+    @Transactional
     public ResponseTicketDTO createTicket(RequestTicketDTO dto) {
         TicketEntity entity = crearDesdeDTO(dto);
         log.info("Guardando ticket: {}", entity);
         return convertToDTO(ticketDao.save(entity));
     }
 
-    public ResponseTicketDTO updateTicket(Long id, RequestTicketDTO ticket) throws Exception {
+    public ResponseTicketDTO updateTicket(String id, RequestTicketDTO ticket) throws Exception {
         TicketEntity old = ticketDao.findById(id).orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
         TicketEntity updated = this.updateTicket(old, ticket);
         return convertToDTO(ticketDao.save(updated));
     }
 
-    public ResponseTicketDTO updateAsignedResource(Long id, RequestAsignTicketDTO asignTicket) throws Exception {
+    public ResponseTicketDTO updateAsignedResource(String id, RequestAsignTicketDTO asignTicket) throws Exception {
         //TODO
         return null;
     }
 
-    public Long deleteTicket(Long id) {
+    public String deleteTicket(String id) {
         ticketDao.deleteById(id);
         return id;
     }
 
     public List<ResponseTicketDTO> getAllTickets() {
-        return ticketDao.findAll().stream().map(x -> convertToDTO(x)).toList();
+        return ticketDao.findAll()
+                .stream()
+                .map(this::convertToDTO)
+                .toList();
     }
+
 
     public ResponseTicketScoresDTO getTicketScores() {
         return ResponseTicketScoresDTO.builder()
-                .severityScores(TicketSeverityScaleEnum.getAllTicketPriorityScales())
+                .severityScores(TicketSeverityScaleEnum.getAllTicketSeverityScales())
                 .prorityScores(TicketPriorityScaleEnum.getAllTicketPriorityScales())
                 .states(TicketStateEnum.getAllTicketStates())
                 .build();
     }
 
-    
+    public List<ResponseTicketDTO> getTicketsPorProductoYVersion(String idProducto, String version) {
+        return ticketDao.findAll().stream()
+                .filter(t -> t.getIdProducto().equals(idProducto))
+                .filter(t -> t.getVersion().equals(version))
+                .map(this::convertToDTO)
+                .toList();
+    }
+
+    public ResponseTicketDTO getById(String id) throws Exception {
+        TicketEntity ticket = ticketDao.findById(id)
+                .orElseThrow(() -> new Exception("Ticket no encontrado"));
+        return convertToDTO(ticket);
+    }
+
+
 }

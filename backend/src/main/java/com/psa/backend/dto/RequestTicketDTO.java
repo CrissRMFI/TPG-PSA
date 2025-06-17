@@ -13,10 +13,10 @@ public class RequestTicketDTO {
     private String nombre;
     private TicketPriorityScaleEnum prioridad;
     private TicketSeverityScaleEnum severidad;
-    private Long idCliente;
-    private Long idProducto;
+    private String idCliente;
+    private String idProducto;
     private String version;
-    private Long idResponsable; // opcional
+    private String idResponsable; // opcional
     private List<String> taskCodes; // códigos de tareas asociadas
     private String descripcion;
 
