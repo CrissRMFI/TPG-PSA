@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 public class TicketEntity {
     @Id
-    @Column(name = "NMSEC_TICKET_Id", nullable = false, unique = true)
+    @Column(name = "NMSEC_TICKET_ID", nullable = false, unique = true)
     String id;
 
     @Column(name = "VA_NOMBRE", nullable = false)
@@ -28,10 +28,10 @@ public class TicketEntity {
     @Column(name = "VA_TICKET_CODE", nullable = false)
     String codigo;
 
-    @Column(name = "ID_CLIENTE", nullable = false)
+    @Column(name = "VA_CLIENTE_ID", nullable = false)
     private String idCliente;
 
-    @Column(name = "ID_PRODUCTO", nullable = false)
+    @Column(name = "VA_PRODUCTO_ID", nullable = false)
     private String idProducto;
 
     @Column(name = "VA_VERSION", nullable = false)
@@ -44,7 +44,7 @@ public class TicketEntity {
     @Column(name = "NM_SEVERITY", nullable = false)
     TicketSeverityScaleEnum severidad;
 
-    @Column(name = "ID_RESPONSABLE")
+    @Column(name = "VA_RESPONSABLE_ID")
     private String idResponsable;
 
     @Enumerated(EnumType.STRING)
