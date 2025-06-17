@@ -10,7 +10,9 @@ public enum TicketStateEnum {
     IN_PROGRESS(2,"EN PROGRESO"),
     WAITING_FOR_VALIDATION(3,"EN ESPERA DE INFORMACION"),
     BLOCKED(4,"BLOQUEADO"),
-    FINISHED(5,"FINALIZADO");
+    FINISHED(5,"FINALIZADO"),
+    CANCEL(6,"CANCELADO"),
+    REJECTED(7,"RECHAZADO");
 
     private Integer id;
     private String es_translation;
@@ -30,5 +32,13 @@ public enum TicketStateEnum {
         }
         return list;
     }
+/*
 
+    ,
+
+
+
+    CANCELADO: "text-gray-500",
+    RECHAZADO: "text-yellow-600",
+* */
 }
