@@ -87,18 +87,18 @@ public class TicketService {
         return convertToDTO(ticketDao.save(entity));
     }
 
-    public ResponseTicketDTO updateTicket(Long id, RequestTicketDTO ticket) throws Exception {
+    public ResponseTicketDTO updateTicket(String id, RequestTicketDTO ticket) throws Exception {
         TicketEntity old = ticketDao.findById(id).orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
         TicketEntity updated = this.updateTicket(old, ticket);
         return convertToDTO(ticketDao.save(updated));
     }
 
-    public ResponseTicketDTO updateAsignedResource(Long id, RequestAsignTicketDTO asignTicket) throws Exception {
+    public ResponseTicketDTO updateAsignedResource(String id, RequestAsignTicketDTO asignTicket) throws Exception {
         //TODO
         return null;
     }
 
-    public Long deleteTicket(Long id) {
+    public String deleteTicket(String id) {
         ticketDao.deleteById(id);
         return id;
     }

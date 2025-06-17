@@ -53,7 +53,7 @@ public class TicketResource {
 
     @PutMapping("/{ticketId}")
     public ResponseEntity updateTicket(
-        @PathVariable Long ticketId,
+        @PathVariable String ticketId,
         @RequestBody RequestTicketDTO ticket) {
         try {
             ResponseTicketDTO output = ticketService.updateTicket(ticketId,ticket);
@@ -65,9 +65,9 @@ public class TicketResource {
 
 
     @DeleteMapping("/{ticketId}")
-    public ResponseEntity deleteTicket(@PathVariable Long ticketId) {
+    public ResponseEntity deleteTicket(@PathVariable String ticketId) {
         try {
-            Long id = ticketService.deleteTicket(ticketId);
+            String id = ticketService.deleteTicket(ticketId);
             return ResponseEntity.ok().body(id);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

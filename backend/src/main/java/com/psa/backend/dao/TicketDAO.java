@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.psa.backend.model.TicketEntity;
 
-public interface TicketDAO extends JpaRepository<TicketEntity, Long> {
+public interface TicketDAO extends JpaRepository<TicketEntity, String> {
     
 }
