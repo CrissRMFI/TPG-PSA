@@ -6,21 +6,18 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import com.psa.backend.dao.TicketDAO;
 import com.psa.backend.dto.RequestAsignTicketDTO;
 import com.psa.backend.dto.RequestTicketDTO;
 import com.psa.backend.dto.ResponseTicketDTO;
 import com.psa.backend.dto.ResponseTicketScoresDTO;
-import com.psa.backend.enums.*;
+import com.psa.backend.enums.TicketPriorityScaleEnum;
+import com.psa.backend.enums.TicketSeverityScaleEnum;
+import com.psa.backend.enums.TicketStateEnum;
 import com.psa.backend.model.TicketEntity;
-import com.psa.backend.services.external.ResourceService;
 import com.psa.backend.model.TicketTaskRelationEntity;
-import com.psa.backend.dto.ResponseTicketDTO;
-
-
-
+import com.psa.backend.services.external.ResourceService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -80,6 +77,10 @@ public class TicketService {
 
     private TicketEntity updateTicket(TicketEntity old, RequestTicketDTO ticket) {
         old.setDescripcion(ticket.getDescripcion());
+        old.setSeveridad(ticket.getSeveridad());
+        old.setPrioridad(ticket.getPrioridad());
+        
+    
         return old;
     }
 
