@@ -122,5 +122,12 @@ public class TicketService {
                 .build();
     }
 
-    
+    public List<ResponseTicketDTO> getTicketsPorProductoYVersion(String idProducto, String version) {
+        return ticketDao.findAll().stream()
+                .filter(t -> t.getIdProducto().equals(idProducto))
+                .filter(t -> t.getVersion().equals(version))
+                .map(this::convertToDTO)
+                .toList();
+    }
+
 }
