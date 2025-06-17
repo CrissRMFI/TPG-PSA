@@ -17,11 +17,13 @@ public enum TicketSeverityScaleEnum {
         this.level = level;
     }
 
-    public static List<Map<String,String>> getAllTicketPriorityScales() {
+    public static List<Map<String,String>> getAllTicketSeverityScales() {
         List<Map<String,String>> list = new ArrayList<>();
-        for ( TicketSeverityScaleEnum ticket : TicketSeverityScaleEnum.values() ) {
-            Map<String,String> map = Map.of("id", ticket.level.toString(), "nivel", ticket.level.toString());
-            list.add(map);
+        for (TicketSeverityScaleEnum severidad : TicketSeverityScaleEnum.values()) {
+            list.add(Map.of(
+                    "code", severidad.name(),
+                    "label", severidad.level.toString()
+            ));
         }
         return list;
     }

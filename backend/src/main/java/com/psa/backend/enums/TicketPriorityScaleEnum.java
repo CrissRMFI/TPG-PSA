@@ -19,9 +19,11 @@ public enum TicketPriorityScaleEnum {
 
     public static List<Map<String,String>> getAllTicketPriorityScales() {
         List<Map<String,String>> list = new ArrayList<>();
-        for ( TicketPriorityScaleEnum ticket : TicketPriorityScaleEnum.values() ) {
-            Map<String,String> map = Map.of("id", ticket.id.toString(), "descripcion", ticket.es_translation);
-            list.add(map);
+        for (TicketPriorityScaleEnum prioridad : TicketPriorityScaleEnum.values()) {
+            list.add(Map.of(
+                    "code", prioridad.name(),
+                    "label", prioridad.es_translation
+            ));
         }
         return list;
     }

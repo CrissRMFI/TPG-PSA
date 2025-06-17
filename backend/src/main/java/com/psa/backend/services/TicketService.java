@@ -109,7 +109,7 @@ public class TicketService {
 
     public ResponseTicketScoresDTO getTicketScores() {
         return ResponseTicketScoresDTO.builder()
-                .severityScores(TicketSeverityScaleEnum.getAllTicketPriorityScales())
+                .severityScores(TicketSeverityScaleEnum.getAllTicketSeverityScales())
                 .prorityScores(TicketPriorityScaleEnum.getAllTicketPriorityScales())
                 .states(TicketStateEnum.getAllTicketStates())
                 .build();

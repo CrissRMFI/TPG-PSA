@@ -18,8 +18,7 @@ public class TicketMetadataController {
         return Map.of(
                 "estados", TicketStateEnum.getAllTicketStates(),
                 "prioridades", TicketPriorityScaleEnum.getAllTicketPriorityScales(),
-                "severidades", TicketSeverityScaleEnum.getAllTicketPriorityScales()
+                "severidades", TicketSeverityScaleEnum.getAllTicketSeverityScales()
         );
     }
-
 }

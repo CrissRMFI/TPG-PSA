@@ -20,12 +20,15 @@ public enum TicketStateEnum {
         es_translation = esTranslation;
     }
 
-    public static List<Map<String,String>> getAllTicketStates() {
-        List<Map<String,String>> list = new ArrayList<>();
-        for ( TicketStateEnum ticket : TicketStateEnum.values() ) {
-            Map<String,String> map = Map.of("id", ticket.id.toString(), "descripcion", ticket.es_translation);
-            list.add(map);
+    public static List<Map<String, String>> getAllTicketStates() {
+        List<Map<String, String>> list = new ArrayList<>();
+        for (TicketStateEnum estado : TicketStateEnum.values()) {
+            list.add(Map.of(
+                    "code", estado.name(),
+                    "label", estado.es_translation
+            ));
         }
         return list;
     }
+
 }
