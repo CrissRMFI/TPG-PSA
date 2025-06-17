@@ -1,6 +1,7 @@
 package com.psa.backend.services;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,6 +50,7 @@ public class TicketService {
 
     private TicketEntity crearDesdeDTO(RequestTicketDTO dto) {
         TicketEntity ticket = new TicketEntity();
+        ticket.setId(UUID.randomUUID().toString());
         ticket.setNombre(dto.getNombre());
         ticket.setPrioridad(dto.getPrioridad());
         ticket.setSeveridad(dto.getSeveridad());

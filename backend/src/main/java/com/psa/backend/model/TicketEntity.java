@@ -15,12 +15,8 @@ import lombok.EqualsAndHashCode;
 @Data
 public class TicketEntity {
     @Id
-    @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sec_ticket_id")
-    @SequenceGenerator(name = "sec_ticket_id", sequenceName = "sec_ticket_id", allocationSize = 1)
     @Column(name = "NMSEC_TICKET_Id", nullable = false, unique = true)
     String id;
-    // Codigo del Ticket 
 
     @Column(name = "VA_NOMBRE", nullable = false)
     private String nombre;
