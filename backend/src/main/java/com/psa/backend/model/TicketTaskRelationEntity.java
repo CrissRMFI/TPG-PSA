@@ -1,12 +1,6 @@
 package com.psa.backend.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,11 +13,12 @@ public class TicketTaskRelationEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sec_ticket_task_realtion_id")
     @SequenceGenerator(name = "sec_ticket_task_relation_id", sequenceName = "sec_ticket_task_realtion_id", allocationSize = 1)
     @Column(name = "NMSEC_TICKET_TASK_RELATION_ID", nullable = false, unique = true)
-    Long id;
+    private Long id;
 
-    @Column(name = "NMSEC_TICKET_ID")
-    String ticketId;
+    @ManyToOne
+    @JoinColumn(name = "NMSEC_TICKET_ID", referencedColumnName = "NMSEC_TICKET_ID")
+    private TicketEntity ticket;
 
     @Column(name = "VA_TASK_CODE")
-    String taskCode;
+    private String taskCode;
 }

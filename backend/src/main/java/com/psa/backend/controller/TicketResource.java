@@ -5,15 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.psa.backend.dto.RequestAsignTicketDTO;
 import com.psa.backend.dto.RequestTicketDTO;
@@ -26,7 +18,7 @@ import com.psa.backend.services.TicketService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("ticket")
+@RequestMapping("/ticket")
 public class TicketResource {
     @Autowired 
     public TicketService ticketService;
@@ -53,7 +45,7 @@ public class TicketResource {
 
     @PutMapping("/{ticketId}")
     public ResponseEntity updateTicket(
-        @PathVariable Long ticketId,
+        @PathVariable String ticketId,
         @RequestBody RequestTicketDTO ticket) {
         try {
             ResponseTicketDTO output = ticketService.updateTicket(ticketId,ticket);
@@ -65,12 +57,30 @@ public class TicketResource {
 
 
     @DeleteMapping("/{ticketId}")
-    public ResponseEntity deleteTicket(@PathVariable Long ticketId) {
+    public ResponseEntity deleteTicket(@PathVariable String ticketId) {
         try {
-            Long id = ticketService.deleteTicket(ticketId);
+            String id = ticketService.deleteTicket(ticketId);
             return ResponseEntity.ok().body(id);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/filtrados")
+    public List<ResponseTicketDTO> getTicketsFiltrados(
+            @RequestParam String idProducto,
+            @RequestParam String version
+    ) {
+        return ticketService.getTicketsPorProductoYVersion(idProducto, version);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getTicketById(@PathVariable String id) {
+        try {
+            ResponseTicketDTO ticket = ticketService.getById(id);
+            return ResponseEntity.ok(ticket);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Ticket no encontrado");
         }
     }
 
