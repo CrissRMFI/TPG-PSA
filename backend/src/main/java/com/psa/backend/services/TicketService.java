@@ -130,4 +130,11 @@ public class TicketService {
                 .toList();
     }
 
+    public ResponseTicketDTO getById(String id) throws Exception {
+        TicketEntity ticket = ticketDao.findById(id)
+                .orElseThrow(() -> new Exception("Ticket no encontrado"));
+        return convertToDTO(ticket);
+    }
+
+
 }

@@ -74,5 +74,14 @@ public class TicketResource {
         return ticketService.getTicketsPorProductoYVersion(idProducto, version);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getTicketById(@PathVariable String id) {
+        try {
+            ResponseTicketDTO ticket = ticketService.getById(id);
+            return ResponseEntity.ok(ticket);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Ticket no encontrado");
+        }
+    }
 
 }
