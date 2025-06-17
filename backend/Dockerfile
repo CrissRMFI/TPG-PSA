@@ -1,10 +1,14 @@
 FROM openjdk:17-jdk-slim
 
-ARG JAR_FILE=build/libs/backend-0.0.1-SNAPSHOT.jar
+COPY . /app
+WORKDIR /app
 
-COPY ${JAR_FILE} /app/app-modulo-soporte.jar
+
+RUN ./gradlew build --no-daemon
+
+
 COPY src/main/resources/keystore.p12 /app/keystore.p12
 
-EXPOSE 8080
+EXPOSE 8443
 
-ENTRYPOINT ["java", "-Dserver.port=${PORT}", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "build/libs/backend-0.0.1-SNAPSHOT.jar"]
