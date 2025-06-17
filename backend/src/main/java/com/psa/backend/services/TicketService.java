@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import com.psa.backend.dao.TicketDAO;
@@ -82,7 +83,7 @@ public class TicketService {
         return old;
     }
 
-
+    @Transactional
     public ResponseTicketDTO createTicket(RequestTicketDTO dto) {
         TicketEntity entity = crearDesdeDTO(dto);
         log.info("Guardando ticket: {}", entity);
@@ -106,8 +107,12 @@ public class TicketService {
     }
 
     public List<ResponseTicketDTO> getAllTickets() {
-        return ticketDao.findAll().stream().map(x -> convertToDTO(x)).toList();
+        return ticketDao.findAll()
+                .stream()
+                .map(this::convertToDTO)
+                .toList();
     }
+
 
     public ResponseTicketScoresDTO getTicketScores() {
         return ResponseTicketScoresDTO.builder()
