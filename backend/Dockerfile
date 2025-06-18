@@ -1,9 +1,12 @@
 # Stage 1: Build
 FROM openjdk:17-jdk-slim AS builder
 
-COPY . .
-
-RUN ./gradlew clean build
+COPY build.gradle .
+COPY src src
+COPY gradlew .
+COPY gradle gradle
+RUN chmod +x ./gradlew
+RUN ./gradlew clean build -x test
 
 # Stage 2: Run
 FROM openjdk:17-jdk-slim AS runner
