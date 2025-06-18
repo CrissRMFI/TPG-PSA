@@ -1,13 +1,9 @@
-HELP.md
+# Ignore common build and IDE files
 .gradle
 build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-!gradlew
-!src/main/resource/*
+HELP.md
 
-### STS ###
+# Exclude IDE-specific files
 .apt_generated
 .classpath
 .factorypath
@@ -18,8 +14,6 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-
-### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
@@ -27,18 +21,19 @@ bin/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 .vscode/
-
 target/
 *.html
 *.log
 
+# Include necessary project files
+!build.gradle
+!gradlew
+!gradle/
+!src/
+!src/main/resources/
