@@ -31,7 +31,7 @@ ARG JAR_FILE=backend/build/libs/*.jar
 COPY --from=builder ${JAR_FILE} app/app-modulo-soporte.jar
 RUN ls -la app/app-modulo-soporte.jar || echo "JAR not found after copy"
 
- Copy keystore if needed
+# Copy keystore if needed
 COPY backend/src/main/resources/keystore.p12 /app/keystore.p12
 RUN ls -la /app/keystore.p12 || echo "keystore.p12 not found after copy"
 
