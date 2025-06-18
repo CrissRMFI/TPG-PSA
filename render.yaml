@@ -18,31 +18,30 @@ services:
         value: 8443
       - key: DB_URL
         fromDatabase:
-          name: modulo_soporte_db_dev
+          name: modulo_soporte_db
           property: connectionString
       - key: DB_HOST
         fromDatabase:
-          name: modulo_soporte_db_dev
+          name: modulo_soporte_db
           property: host
       - key: DB_NAME
         fromDatabase:
-          name: modulo_soporte_db_dev
+          name: modulo_soporte_db
           property: database
       - key: DB_USER_NAME
         fromDatabase:
-          name: modulo_soporte_db_dev
+          name: modulo_soporte_db
           property: user 
       - key: DB_PASSWORD
         fromDatabase:
-          name: modulo_soporte_db_dev
+          name: modulo_soporte_db
           property: password 
       - key: DB_PORT
         fromDatabase:
-          name: modulo_soporte_db_dev
+          name: modulo_soporte_db
           property: port
 
-
-
 databases:
-    - name: modulo_soporte_db_dev
+    - name: modulo_soporte_db
       plan: free
+      databaseName: soporte_dev
