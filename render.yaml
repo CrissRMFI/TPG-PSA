@@ -1,0 +1,48 @@
+services:
+  - type: web  
+    plan: free
+    name: app-modulo-soporte-dev
+    runtime: docker
+    repo: https://github.com/CrissRMFI/TPG-PSA.git
+    branch: 'develop'
+    autoDeployTrigger: commit
+    dockerfilePath: './backend/Dockerfile'
+    envVars:
+      - key: EXT_API_CLIENTS
+        value: https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/754f50e8-20d8-4223-bbdc-56d50131d0ae/clientes-psa/1.0.0/m/api/clientes
+      - key: EXT_API_RESOURCES
+        value: https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/32c8fe38-22a6-4fbb-b461-170dfac937e4/recursos-api/1.0.1/m/recursos
+      - key: API_CONTEXT_PATH
+        value: /support-module
+      - key: PORT
+        value: 8443
+      - key: DB_URL
+        fromDatabase:
+          name: modulo_soporte_db_dev
+          property: connectionString
+      - key: DB_HOST
+        fromDatabase:
+          name: modulo_soporte_db_dev
+          property: host
+      - key: DB_NAME
+        fromDatabase:
+          name: modulo_soporte_db_dev
+          property: databaseName
+      - key: DB_USER_NAME
+        fromDatabase:
+          name: modulo_soporte_db_dev
+          property: user 
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: modulo_soporte_db_dev
+          property: password 
+      - key: DB_PORT
+        fromDatabase:
+          name: modulo_soporte_db_dev
+          property: port
+
+
+
+databases:
+    - name: modulo_soporte_db_dev
+      plan: free

@@ -31,7 +31,9 @@ target/
 *.html
 *.log
 
-# Include Gradle Wrapper files
+# Include necessary project files
+!build.gradle
 !gradlew
-!gradlew.bat
 !gradle/
+!src/
+!src/main/resources/
