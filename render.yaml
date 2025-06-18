@@ -27,7 +27,7 @@ services:
       - key: DB_NAME
         fromDatabase:
           name: modulo_soporte_db_dev
-          property: databaseName
+          property: database
       - key: DB_USER_NAME
         fromDatabase:
           name: modulo_soporte_db_dev
