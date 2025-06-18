@@ -27,6 +27,8 @@ dependencies {
 	
 	testCompileOnly 'org.projectlombok:lombok:1.18.38'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
+  //Actuator - Health Check
+  implementation 'org.springframework.boot:spring-boot-starter-actuator:3.5.0'
 
   // OpenAPI - springDoc (swagger)
   //implementation 'org.springdoc.openapi-gradle-plugin:org.springdoc.openapi-gradle-plugin.gradle.plugin:1.9.0'
