@@ -20,6 +20,14 @@ services:
         fromDatabase:
           name: modulo_soporte_db
           property: connectionString
+      - key: DB_HOST
+        fromDatabase:
+          name: modulo_soporte_db
+          property: host
+      - key: DB_NAME
+        fromDatabase:
+          name: modulo_soporte_db
+          property: databaseName
       - key: DB_USER_NAME
         fromDatabase:
           name: modulo_soporte_db
