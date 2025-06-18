@@ -25,16 +25,15 @@ RUN ./gradlew --info clean build -x test || echo "Gradle build failed"
 FROM openjdk:17-jdk-slim AS runner
 
 USER 1000
-WORKDIR /app
 
 # Copy the built JAR with debug
-ARG JAR_FILE=build/libs/*.jar
-COPY --from=builder /app/build/libs/*.jar app/app-modulo-soporte.jar
+ARG JAR_FILE=backend/build/libs/*.jar
+COPY --from=builder ${JAR_FILE} app/app-modulo-soporte.jar
 RUN ls -la app/app-modulo-soporte.jar || echo "JAR not found after copy"
 
-# Copy keystore if needed
-#COPY src/main/resources/keystore.p12 /app/keystore.p12
-#RUN ls -la /app/keystore.p12 || echo "keystore.p12 not found after copy"
+ Copy keystore if needed
+COPY backend/src/main/resources/keystore.p12 /app/keystore.p12
+RUN ls -la /app/keystore.p12 || echo "keystore.p12 not found after copy"
 
 EXPOSE 8443
 ENTRYPOINT ["java", "-jar", "/app/app-modulo-sporte.jar"]
