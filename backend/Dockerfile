@@ -38,4 +38,6 @@ RUN ls -la /app-modulo-soporte.jar || echo "JAR not found after copy"
 COPY backend/src/main/resources/keystore.p12 app/keystore.p12
 RUN ls -la /app/keystore.p12 || echo "keystore.p12 not found after copy"
 
+EXPOSE 8443
+
 ENTRYPOINT ["java", "-jar", "/app-modulo-soporte.jar"]
