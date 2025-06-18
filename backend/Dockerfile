@@ -13,8 +13,7 @@ USER 1000
 ARG JAR_FILE=build/libs/*.jar
 
 COPY --from=builder ${JAR_FILE} app/app-modulo-soporte.jar
-
-COPY ./src/main/resources/keystore.p12 /app/keystore.p12
+COPY src/main/resources/keystore.p12 /src/main/resources/keystore.p12
 
 EXPOSE 8443
 
