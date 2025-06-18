@@ -1,0 +1,39 @@
+# Ignore common build and IDE files
+.gradle
+build/
+HELP.md
+
+# Exclude IDE-specific files
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+.vscode/
+target/
+*.html
+*.log
+
+# Include necessary project files
+!build.gradle
+!gradlew
+!gradle/
+!src/
+!src/main/resources/
