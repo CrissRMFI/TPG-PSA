@@ -2,17 +2,17 @@
 FROM gradle:8.7-jdk17 AS builder
 
 # Copy files one by one with debug steps
-COPY build.gradle .
+COPY backend/build.gradle .
 RUN ls -la || echo "build.gradle not found after copy"
 
-COPY src src
+COPY backend/src src
 RUN ls -la src || echo "src directory not found after copy"
 
-COPY gradlew .
-RUN ls -la gradlew || echo "gradlew not found after copy"
+COPY backend/gradlew .
+RUN ls -la backend/gradlew || echo "gradlew not found after copy"
 
-#COPY gradle gradle
-#RUN ls -la gradle || echo "gradle directory not found after copy"
+COPY backend/gradle gradle
+RUN ls -la gradle || echo "gradle directory not found after copy"
 
 # Make gradlew executable and debug
 RUN chmod +x ./gradlew
