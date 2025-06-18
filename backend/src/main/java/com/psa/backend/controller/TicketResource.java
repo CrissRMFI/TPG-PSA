@@ -28,11 +28,6 @@ public class TicketResource {
         return ticketService.getAllTickets();
     }
 
-    @GetMapping("scores")
-    public ResponseTicketScoresDTO getTicketScores() {
-        return ticketService.getTicketScores();
-    }
-
     @PostMapping
     public ResponseEntity createTicket(@RequestBody RequestTicketDTO ticket) {
         try {

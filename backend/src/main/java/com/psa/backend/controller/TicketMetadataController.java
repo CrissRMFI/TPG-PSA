@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/ticket/metadata")
+@RequestMapping("/metadatos")
 @CrossOrigin
 public class TicketMetadataController {
 
-    @GetMapping("/metadatos")
+    @GetMapping
     public Map<String, List<Map<String, String>>> getAllMetadata() {
         return Map.of(
                 "estados", TicketStateEnum.getAllTicketStates(),
