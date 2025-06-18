@@ -4,7 +4,6 @@ FROM openjdk:17-jdk-slim AS builder
 COPY build.gradle .
 COPY src src
 COPY gradlew .
-COPY gradle gradle
 RUN chmod +x ./gradlew
 RUN ./gradlew clean build -x test
 
