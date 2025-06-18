@@ -1,6 +1,8 @@
 # Stage 1: Build
 FROM gradle:8.7-jdk17 AS builder
 
+WORKDIR /app
+
 # Copy files one by one with debug steps
 COPY backend/build.gradle .
 RUN ls -la || echo "build.gradle not found after copy"
@@ -25,10 +27,11 @@ RUN ./gradlew --info clean build -x test || echo "Gradle build failed"
 FROM openjdk:17-jdk-slim AS runner
 
 USER 1000
+WORKDIR /app
 
 # Copy the built JAR with debug
-ARG JAR_FILE=backend/build/libs/*.jar
-COPY --from=builder ${JAR_FILE} app/app-modulo-soporte.jar
+ARG JAR_FILE=build/libs/*.jar
+COPY --from=builder /app/${JAR_FILE} app/app-modulo-soporte.jar
 RUN ls -la app/app-modulo-soporte.jar || echo "JAR not found after copy"
 
 # Copy keystore if needed
