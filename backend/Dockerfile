@@ -33,8 +33,8 @@ COPY --from=builder /app/build/libs/*.jar app/app-modulo-soporte.jar
 RUN ls -la app/app-modulo-soporte.jar || echo "JAR not found after copy"
 
 # Copy keystore if needed
-COPY src/main/resources/keystore.p12 /app/keystore.p12
-RUN ls -la /app/keystore.p12 || echo "keystore.p12 not found after copy"
+#COPY src/main/resources/keystore.p12 /app/keystore.p12
+#RUN ls -la /app/keystore.p12 || echo "keystore.p12 not found after copy"
 
 EXPOSE 8443
 ENTRYPOINT ["java", "-jar", "/app/app-modulo-sporte.jar"]
