@@ -11,8 +11,8 @@ RUN ls -la src || echo "src directory not found after copy"
 COPY gradlew .
 RUN ls -la gradlew || echo "gradlew not found after copy"
 
-COPY gradle gradle
-RUN ls -la gradle || echo "gradle directory not found after copy"
+#COPY gradle gradle
+#RUN ls -la gradle || echo "gradle directory not found after copy"
 
 # Make gradlew executable and debug
 RUN chmod +x ./gradlew
