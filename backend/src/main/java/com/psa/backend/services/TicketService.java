@@ -79,6 +79,7 @@ public class TicketService {
         old.setDescripcion(ticket.getDescripcion());
         old.setSeveridad(ticket.getSeveridad());
         old.setPrioridad(ticket.getPrioridad());
+        old.setEstado(ticket.getEstado());
         
     
         return old;
