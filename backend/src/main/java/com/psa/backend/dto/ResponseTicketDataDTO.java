@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Builder
 public class ResponseTicketDataDTO {
-    private String internalId;// a4959e17-dd51-4386-8d41-716bf09c1b3e,
+    private Long internalId; 
     private String codigo;// TCK-1750335319951,
     private String nombre;// Ticket Prueba Deploy,
     private String descripcion;// Prueba,
@@ -29,6 +29,9 @@ public class ResponseTicketDataDTO {
     private String nombreCliente;// Desconocido,
 
     private String idProducto;// P-0001,
+    private String nombreProducto;// P-0001,
+
+    private String idVersion;// P-0001,
     private String version;// 7.50,
 
     private String idResponsable;// ff14a491-e26d-4092-86ea-d76f20c165d1,

@@ -57,11 +57,30 @@ public class TicketService {
                 .build();
     }
 
-    private ResponseTicketDataDTO mapTicketToExternalData(TicketEntity ticket) {
+    private ResponseTicketDataDTO convertToTicketData(TicketEntity ticket) {
         ResponseResourceDTO resource = resourceService.getResourceById(ticket.getIdResponsable(), false);
         ResponseClientDTO client = clientService.getClientById(ticket.getIdCliente(), false);
         return ResponseTicketDataDTO.builder()
-        .build();
+                .internalId(ticket.getId())
+                .codigo(ticket.getVersion().getProducto().getPrefix() + " " +ticket.getId())
+                .nombre(ticket.getNombre())
+                .prioridad(ticket.getPrioridad().getCode())
+                .prioridadLabel(ticket.getPrioridad().getLabel())
+                .severidad(ticket.getSeveridad().getCode())
+                .severidadLabel(ticket.getSeveridad().getLabel())
+                .estado(ticket.getEstado().getCode())
+                .estadoLabel(ticket.getEstado().getLabel())
+                .descripcion(ticket.getDescripcion())
+                .version(ticket.getVersion().getVersion())
+                .idCliente(ticket.getIdCliente())
+                .nombreCliente(client.getRazon_social())
+                .idProducto(ticket.getVersion().getProducto().getId().toString())
+                .nombreProducto(ticket.getVersion().getProducto().getNombre())
+                .idVersion(ticket.getVersion().getId().toString())
+                .version(ticket.getVersion().getVersion())
+                .idResponsable(ticket.getIdResponsable())
+                .nombreResponsable(StringUtils.hasText(resource.getNombre()) ?resource.getNombre() : "Desconocido" )
+                .build();
     }
 
 
@@ -144,7 +163,7 @@ public class TicketService {
     @Transactional(readOnly = true)
     public List<ResponseTicketDataDTO> getTicketsDataPorVersion(String idVersion) {
         Stream<TicketEntity> tickets = ticketDao.findAllByVersionId(Long.valueOf(idVersion));
-        return tickets.map(ticket -> mapTicketToExternalData(ticket)).toList();
+        return tickets.map(ticket -> convertToTicketData(ticket)).toList();
         
     }
 
@@ -154,5 +173,11 @@ public class TicketService {
         return convertToDTO(ticket);
     }
 
+    public List<ResponseTicketDataDTO> getAllTicketsData() {
+        return ticketDao.findAll()
+                .stream()
+                .map(this::convertToTicketData)
+                .toList();
+    }
 
 }
