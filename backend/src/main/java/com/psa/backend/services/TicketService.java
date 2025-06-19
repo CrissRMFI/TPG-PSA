@@ -2,6 +2,7 @@ package com.psa.backend.services;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +13,14 @@ import com.psa.backend.dao.TicketDAO;
 import com.psa.backend.dto.RequestAsignTicketDTO;
 import com.psa.backend.dto.RequestTicketDTO;
 import com.psa.backend.dto.ResponseTicketDTO;
+import com.psa.backend.dto.ResponseTicketDataDTO;
 import com.psa.backend.dto.ResponseTicketScoresDTO;
+import com.psa.backend.dto.external.ResponseClientDTO;
+import com.psa.backend.dto.external.ResponseResourceDTO;
 import com.psa.backend.enums.*;
+import com.psa.backend.model.ProductEntity;
 import com.psa.backend.model.TicketEntity;
+import com.psa.backend.services.external.ClientsService;
 import com.psa.backend.services.external.ResourceService;
 import com.psa.backend.model.TicketTaskRelationEntity;
 import com.psa.backend.dto.ResponseTicketDTO;
@@ -31,6 +37,8 @@ public class TicketService {
     public TicketDAO ticketDao;
     @Autowired
     public ResourceService resourceService;
+    @Autowired
+    public ClientsService clientService;
 
     private ResponseTicketDTO convertToDTO(TicketEntity ticket) {
         return ResponseTicketDTO.builder()
@@ -43,9 +51,16 @@ public class TicketService {
                 .descripcion(ticket.getDescripcion())
                 .version(ticket.getVersion())
                 .idCliente(ticket.getIdCliente())
-                .idProducto(ticket.getIdProducto())
+                .idProducto(ticket.getProducto().getId().toString(0))
                 .idResponsable(ticket.getIdResponsable())
                 .build();
+    }
+
+    private ResponseTicketDataDTO mapTicketToExternalData(TicketEntity ticket) {
+        ResponseResourceDTO resource = resourceService.getResourceById(ticket.getIdResponsable(), false);
+        ResponseClientDTO client = clientService.getClientById(ticket.getIdCliente(), false);
+        return ResponseTicketDataDTO.builder()
+        .build();
     }
 
 
@@ -57,7 +72,7 @@ public class TicketService {
         ticket.setSeveridad(dto.getSeveridad());
         ticket.setDescripcion(dto.getDescripcion());
         ticket.setIdCliente(dto.getIdCliente());
-        ticket.setIdProducto(dto.getIdProducto());
+        ticket.setProducto(ProductEntity.builder().id(Long.valueOf(dto.getIdProducto())).build());
         ticket.setVersion(dto.getVersion());
         ticket.setIdResponsable(dto.getIdResponsable());
         ticket.setEstado(TicketStateEnum.CREATED);
@@ -124,7 +139,14 @@ public class TicketService {
 
     @Transactional(readOnly = true)
     public List<ResponseTicketDTO> getTicketsPorProductoYVersion(String idProducto, String version) {
-        return ticketDao.findAllByIdProductoYVersion(idProducto, version).map(this::convertToDTO).toList();
+        return ticketDao.findAllByIdProductoYVersion(Long.valueOf(idProducto), version).map(this::convertToDTO).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<ResponseTicketDataDTO> getTicketsDataPorProductoYVersion(String idProducto, String version) {
+        Stream<TicketEntity> tickets = ticketDao.findAllByIdProductoYVersion(Long.valueOf(idProducto), version);
+        return tickets.map(ticket -> mapTicketToExternalData(ticket)).toList();
+        
     }
 
     public ResponseTicketDTO getById(String id) throws Exception {

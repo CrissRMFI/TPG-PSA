@@ -28,11 +28,10 @@ public class TicketEntity {
     @Column(name = "VA_TICKET_CODE", nullable = false)
     String codigo;
 
-    @Column(name = "VA_CLIENTE_ID", nullable = false)
-    private String idCliente;
 
-    @Column(name = "VA_PRODUCTO_ID", nullable = false)
-    private String idProducto;
+    @ManyToOne
+    @JoinColumn(name = "ID_PRODUCTO", nullable = false)
+    private ProductEntity producto;
 
     @Column(name = "VA_VERSION", nullable = false)
     private String version;
@@ -44,7 +43,9 @@ public class TicketEntity {
     @Column(name = "NM_SEVERITY", nullable = false)
     TicketSeverityScaleEnum severidad;
 
-    @Column(name = "VA_RESPONSABLE_ID")
+    @Column(name = "VA_EXTERNAL_CLIENTE_ID", nullable = false)
+    private String idCliente;
+    @Column(name = "VA_EXTERNAL_RESPONSABLE_ID")
     private String idResponsable;
 
     @Enumerated(EnumType.STRING)

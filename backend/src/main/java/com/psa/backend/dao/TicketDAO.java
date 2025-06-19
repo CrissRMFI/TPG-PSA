@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TicketDAO extends JpaRepository<TicketEntity, String> {
 
-    @Query("SELECT te FROM TicketEntity te WHERE te.idProducto = :idProducto AND te.version = :version")
-    public Stream<TicketEntity> findAllByIdProductoYVersion(String idProducto, String version);
+    @Query("SELECT te FROM TicketEntity te WHERE te.producto.id = :idProducto AND te.version = :version")
+    public Stream<TicketEntity> findAllByIdProductoYVersion(Long idProducto, String version);
     
 }
