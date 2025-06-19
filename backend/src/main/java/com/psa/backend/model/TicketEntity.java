@@ -2,21 +2,30 @@ package com.psa.backend.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.psa.backend.enums.TicketPriorityScaleEnum;
 import com.psa.backend.enums.TicketSeverityScaleEnum;
 import com.psa.backend.enums.TicketStateEnum;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tfa_support_tickets")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class TicketEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sec_tfa_ticket_code")
+    @SequenceGenerator(name = "sec_tfa_ticket_code", sequenceName = "sec_tfa_ticket_code", allocationSize = 1)
     @Column(name = "NMSEC_TICKET_ID", nullable = false, unique = true)
-    String id;
+    Long id;
 
     @Column(name = "VA_NOMBRE", nullable = false)
     private String nombre;
@@ -25,16 +34,9 @@ public class TicketEntity {
     @Column(name = "VA_PRIORIDAD", nullable = false)
     private TicketPriorityScaleEnum prioridad;
 
-    @Column(name = "VA_TICKET_CODE", nullable = false)
-    String codigo;
-
-
     @ManyToOne
-    @JoinColumn(name = "ID_PRODUCTO", nullable = false)
-    private ProductEntity producto;
-
-    @Column(name = "VA_VERSION", nullable = false)
-    private String version;
+    @JoinColumn(name = "NM_SEC_VERSION_ID", nullable = false)
+    private ProductVersionEntity version;
 
     @Column(name = "VA_DESCRIPTION")
     String descripcion;
@@ -45,6 +47,7 @@ public class TicketEntity {
 
     @Column(name = "VA_EXTERNAL_CLIENTE_ID", nullable = false)
     private String idCliente;
+
     @Column(name = "VA_EXTERNAL_RESPONSABLE_ID")
     private String idResponsable;
 

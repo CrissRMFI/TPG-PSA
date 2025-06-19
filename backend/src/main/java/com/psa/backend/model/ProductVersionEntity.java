@@ -1,6 +1,5 @@
 package com.psa.backend.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -13,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -23,29 +23,27 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tfa_support_productos")
+@Table(name = "tfa_support_versiones")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductEntity {
+public class ProductVersionEntity {
 
     @Id
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sec_tfa_product")
-    @SequenceGenerator(name = "sec_tfa_product", sequenceName = "sec_tfa_product", allocationSize = 1)
-    @Column(name = "ID_PRODUCTO", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sec_tfa_version_product")
+    @SequenceGenerator(name = "sec_tfa_version_product", sequenceName = "sec_tfa_version_product", allocationSize = 1)
+    @Column(name = "nmsec_id_version", nullable = false, unique = true)
     private Long id;
 
-    @Column(name = "va_prefix", nullable = false)
-    private String prefix;
+    @Column(name = "va_version", nullable = false)
+    private String version;
 
-    @Column(name = "NOMBRE", nullable = false)
-    private String nombre;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "version", cascade = CascadeType.ALL)
+    List<TicketEntity> tickets;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "producto", cascade = CascadeType.ALL)
-    private List<ProductVersionEntity> versiones;
-
-    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto", cascade = CascadeType.ALL)
-    //List<TicketEntity> tickets;
+    @ManyToOne
+    @JoinColumn(name = "ID_PRODUCTO", nullable = false)
+    private ProductEntity producto;
 }

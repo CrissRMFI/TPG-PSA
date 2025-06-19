@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.psa.backend.dto.RequestAsignTicketDTO;
 import com.psa.backend.dto.RequestTicketDTO;
 import com.psa.backend.dto.ResponseTicketDTO;
+import com.psa.backend.dto.ResponseTicketDataDTO;
 import com.psa.backend.dto.ResponseTicketScoresDTO;
 import com.psa.backend.dto.external.ResponseResourceDTO;
 import com.psa.backend.model.TicketEntity;
@@ -63,14 +64,23 @@ public class TicketResource {
 
     @GetMapping("/filtrados")
     public List<ResponseTicketDTO> getTicketsFiltrados(
-            @RequestParam String idProducto,
-            @RequestParam String version
+            @RequestParam(name = "version") String idVersion 
     ) {
-        return ticketService.getTicketsPorProductoYVersion(idProducto, version);
+        return ticketService.getTicketsPorProductoYVersion(idVersion);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTicketById(@PathVariable String id) {
+        try {
+            ResponseTicketDTO ticket = ticketService.getById(id);
+            return ResponseEntity.ok(ticket);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Ticket no encontrado");
+        }
+    }
+
+    @GetMapping("data/{id}")
+    public ResponseEntity<?> getTicketDataById(@PathVariable String id) {
         try {
             ResponseTicketDTO ticket = ticketService.getById(id);
             return ResponseEntity.ok(ticket);
