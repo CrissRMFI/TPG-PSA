@@ -19,7 +19,7 @@ public class ResponseTicketDTO {
     private TicketStateEnum estado;
     private String descripcion;
     private String version;
-    private String idCliente;
     private String idProducto;
     private String idResponsable;
+    private String idCliente;
 }

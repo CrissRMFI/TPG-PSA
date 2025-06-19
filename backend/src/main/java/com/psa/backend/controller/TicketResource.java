@@ -7,14 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.psa.backend.dto.RequestAsignTicketDTO;
 import com.psa.backend.dto.RequestTicketDTO;
 import com.psa.backend.dto.ResponseTicketDTO;
 import com.psa.backend.dto.ResponseTicketDataDTO;
-import com.psa.backend.dto.ResponseTicketScoresDTO;
-import com.psa.backend.dto.external.ResponseResourceDTO;
-import com.psa.backend.model.TicketEntity;
-import com.psa.backend.services.external.ResourceService;
 import com.psa.backend.services.TicketService;
 
 @CrossOrigin
@@ -24,10 +19,6 @@ public class TicketResource {
     @Autowired 
     public TicketService ticketService;
 
-    @GetMapping
-    public List<ResponseTicketDTO> getAllTickets() {
-        return ticketService.getAllTickets();
-    }
 
     @PostMapping
     public ResponseEntity createTicket(@RequestBody RequestTicketDTO ticket) {
@@ -62,6 +53,12 @@ public class TicketResource {
         }
     }
 
+    /*
+    @GetMapping
+    public List<ResponseTicketDTO> getAllTickets() {
+        return ticketService.getAllTickets();
+    }
+
     @GetMapping("/filtrados")
     public List<ResponseTicketDTO> getTicketsFiltrados(
             @RequestParam(name = "version") String idVersion 
@@ -78,13 +75,14 @@ public class TicketResource {
             return ResponseEntity.status(404).body("Ticket no encontrado");
         }
     }
+    */
+
 
     @GetMapping("/data")
     public List<ResponseTicketDataDTO> getAllTicketsData() {
         return ticketService.getAllTicketsData();
     }
 
-    /* 
     @GetMapping("data/{id}")
     public ResponseEntity<?> getTicketDataById(@PathVariable String id) {
         try {
@@ -95,14 +93,11 @@ public class TicketResource {
         }
     }
 
-
-
     @GetMapping("/version/{idVersion}")
-    public List<ResponseTicketDataTO> getTicketDeVersion(
+    public List<ResponseTicketDataDTO> getTicketDeVersion(
             @PathVariable String idVersion 
     ) {
-        return ticketService.getTicketsPorProductoYVersion(idVersion);
+        return ticketService.getTicketsDataByVersionId(idVersion);
     }
-    */
 
 }

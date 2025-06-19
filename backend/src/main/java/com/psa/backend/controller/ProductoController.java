@@ -1,7 +1,10 @@
 package com.psa.backend.controller;
 
 import com.psa.backend.dao.ProductDAO;
+import com.psa.backend.dto.ResponseProductDTO;
 import com.psa.backend.model.ProductEntity;
+import com.psa.backend.services.ProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +16,10 @@ import java.util.List;
 public class ProductoController {
 
     @Autowired
-    private ProductDAO productDAO;
+    private ProductService productService;
 
     @GetMapping
-    public List<ProductEntity> getAll() {
-        return productDAO.findAll();
+    public List<ResponseProductDTO> getAll() {
+        return productService.getAllProducts();
     }
 }

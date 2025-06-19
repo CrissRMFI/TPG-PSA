@@ -12,13 +12,10 @@ import java.util.List;
 public class RequestTicketDTO {
     private String nombre;
     private TicketPriorityScaleEnum prioridad;
+    private String version;
+    private String descripcion;
     private TicketSeverityScaleEnum severidad;
     private String idCliente;
-    private String idProducto;
-    private String version;
     private String idResponsable; // opcional
     private List<String> taskCodes; // códigos de tareas asociadas
-    private String descripcion;
-
-
 }
