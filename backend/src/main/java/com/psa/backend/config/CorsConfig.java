@@ -13,7 +13,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Permitir todas las rutas
-                        .allowedOrigins("http://localhost:3000")
+                        .allowedOriginPatterns(
+                            "http://localhost:[*]", // Allow any localhost port (e.g., 3000)
+                            "https://*.vercel.app" // Allow all Vercel subdomains
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true); // Necesario si usás cookies o auth headers
