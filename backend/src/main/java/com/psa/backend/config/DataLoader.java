@@ -14,6 +14,7 @@ import com.psa.backend.enums.TicketPriorityScaleEnum;
 import com.psa.backend.enums.TicketSeverityScaleEnum;
 import com.psa.backend.enums.TicketStateEnum;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -71,7 +72,7 @@ public class DataLoader {
                     .version(ProductVersionEntity.builder().id(1L).build()).estado(TicketStateEnum.CREATED)
                     .severidad(TicketSeverityScaleEnum.LEVEL_1)
                     .nombre("TEST NOMBRE").descripcion("Test").idResponsable("ff14a491-e26d-4092-86ea-d76f20c165d1")
-                    .idCliente("1").build());
+                    .idCliente("1").fechaCreacion(LocalDate.of(2025,01,12)).build());
         };
     }
 }

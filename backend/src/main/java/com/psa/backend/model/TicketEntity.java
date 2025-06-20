@@ -1,5 +1,6 @@
 package com.psa.backend.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -50,6 +51,9 @@ public class TicketEntity {
 
     @Column(name = "VA_EXTERNAL_RESPONSABLE_ID")
     private String idResponsable;
+
+    @Column(name = "DA_FECHA_CREACION")
+    private LocalDate fechaCreacion;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "VA_ESTADO", nullable = false)

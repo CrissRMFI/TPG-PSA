@@ -1,5 +1,8 @@
 package com.psa.backend.services;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
@@ -43,6 +46,8 @@ public class TicketService {
     @Autowired
     public ClientsService clientService;
 
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+
     private ResponseTicketDTO convertToDTO(TicketEntity ticket) {
         return ResponseTicketDTO.builder()
                 .internalId(ticket.getId().toString())
@@ -81,6 +86,7 @@ public class TicketService {
                 .idVersion(ticket.getVersion().getId().toString())
                 .version(ticket.getVersion().getVersion())
                 .idResponsable(ticket.getIdResponsable())
+                .fechaCreacion(dateFormatter.format(ticket.getFechaCreacion()))
                 .nombreResponsable(StringUtils.hasText(resource.getNombre()) ? resource.getNombre() +" "+ resource.getApellido() : "Desconocido" )
                 .build();
     }
@@ -121,6 +127,7 @@ public class TicketService {
         ticket.setVersion(productVersionDao.findById(dto.getVersion()).get());
         ticket.setIdResponsable(dto.getIdResponsable());
         ticket.setEstado(TicketStateEnum.CREATED);
+        ticket.setFechaCreacion(LocalDate.now());
         return ticket;
     }
 
