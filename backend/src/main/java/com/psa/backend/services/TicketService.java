@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 import java.util.stream.Stream;
 
@@ -46,7 +47,7 @@ public class TicketService {
     @Autowired
     public ClientsService clientService;
 
-    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.forLanguageTag("es-ES"));;
 
     private ResponseTicketDTO convertToDTO(TicketEntity ticket) {
         return ResponseTicketDTO.builder()
