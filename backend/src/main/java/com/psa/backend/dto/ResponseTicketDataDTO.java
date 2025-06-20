@@ -1,10 +1,5 @@
 package com.psa.backend.dto;
 
-import com.psa.backend.dto.external.ResponseResourceDTO;
-
-import com.psa.backend.enums.TicketPriorityScaleEnum;
-import com.psa.backend.enums.TicketSeverityScaleEnum;
-import com.psa.backend.enums.TicketStateEnum;
 import lombok.Builder;
 import lombok.Data;
 

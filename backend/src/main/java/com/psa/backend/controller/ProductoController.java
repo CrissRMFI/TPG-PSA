@@ -1,8 +1,6 @@
 package com.psa.backend.controller;
 
-import com.psa.backend.dao.ProductDAO;
 import com.psa.backend.dto.ResponseProductDTO;
-import com.psa.backend.model.ProductEntity;
 import com.psa.backend.services.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;

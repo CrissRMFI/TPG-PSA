@@ -1,9 +1,5 @@
 package com.psa.backend.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 import com.psa.backend.enums.TicketPriorityScaleEnum;
 import com.psa.backend.enums.TicketSeverityScaleEnum;
 import com.psa.backend.enums.TicketStateEnum;
@@ -11,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity

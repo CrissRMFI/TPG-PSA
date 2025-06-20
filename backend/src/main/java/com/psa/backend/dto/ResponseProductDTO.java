@@ -1,7 +1,5 @@
 package com.psa.backend.dto;
 
-import com.psa.backend.enums.TicketPriorityScaleEnum;
-import com.psa.backend.enums.TicketSeverityScaleEnum;
 import lombok.Builder;
 import lombok.Data;
 

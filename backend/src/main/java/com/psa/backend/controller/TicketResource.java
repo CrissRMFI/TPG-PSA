@@ -53,31 +53,6 @@ public class TicketResource {
         }
     }
 
-    /*
-    @GetMapping
-    public List<ResponseTicketDTO> getAllTickets() {
-        return ticketService.getAllTickets();
-    }
-
-    @GetMapping("/filtrados")
-    public List<ResponseTicketDTO> getTicketsFiltrados(
-            @RequestParam(name = "version") String idVersion 
-    ) {
-        return ticketService.getTicketsPorProductoYVersion(idVersion);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getTicketById(@PathVariable String id) {
-        try {
-            ResponseTicketDTO ticket = ticketService.getById(id);
-            return ResponseEntity.ok(ticket);
-        } catch (Exception e) {
-            return ResponseEntity.status(404).body("Ticket no encontrado");
-        }
-    }
-    */
-
-
     @GetMapping("/data")
     public List<ResponseTicketDataDTO> getAllTicketsData() {
         return ticketService.getAllTicketsData();

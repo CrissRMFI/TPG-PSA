@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +28,6 @@ import com.psa.backend.services.external.ResourceService;
 import com.psa.backend.enums.TicketPriorityScaleEnum;
 import com.psa.backend.enums.TicketSeverityScaleEnum;
 import com.psa.backend.enums.TicketStateEnum;
-import com.psa.backend.model.TicketTaskRelationEntity;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -85,29 +85,16 @@ public class TicketService {
                 .build();
     }
 
-    private TicketEntity convertToEditEntity(RequestTicketDTO dto) {
-        TicketEntity ticket = new TicketEntity();
+    private TicketEntity convertToEditEntity(TicketEntity ticket, RequestTicketDTO dto) {
         ticket.setNombre(dto.getNombre());
-        ticket.setPrioridad(dto.getPrioridad());
-        ticket.setSeveridad(dto.getSeveridad());
         ticket.setDescripcion(dto.getDescripcion());
-        ticket.setIdCliente(dto.getIdCliente());
-        ticket.setVersion(ProductVersionEntity.builder().id(Long.valueOf(dto.getVersion())).build());
+        ticket.setSeveridad(dto.getSeveridad());
+        ticket.setPrioridad(dto.getPrioridad());
+        ticket.setEstado(dto.getEstado());
         ticket.setIdResponsable(dto.getIdResponsable());
-        ticket.setEstado(TicketStateEnum.CREATED);
 
-        if (dto.getTaskCodes() != null && !dto.getTaskCodes().isEmpty()) {
-            List<TicketTaskRelationEntity> tareas = dto.getTaskCodes().stream()
-                    .map(code -> {
-                        TicketTaskRelationEntity tarea = new TicketTaskRelationEntity();
-                        tarea.setTaskCode(code);
-                        tarea.setTicket(ticket);
-                        return tarea;
-                    }).toList();
-
-            ticket.setTareas(tareas);
-        }
-
+        //ticket.setVersion(ProductVersionEntity.builder().id(Long.valueOf(dto.getVersion())).build());
+        //ticket.setIdCliente(dto.getIdCliente());
         return ticket;
     }
 
@@ -124,14 +111,6 @@ public class TicketService {
         return ticket;
     }
 
-    private TicketEntity updateTicket(TicketEntity old, RequestTicketDTO ticket) {
-        old.setDescripcion(ticket.getDescripcion());
-        old.setSeveridad(ticket.getSeveridad());
-        old.setPrioridad(ticket.getPrioridad());
-        old.setEstado(ticket.getEstado());
-        return old;
-    }
-
     @Transactional
     public ResponseTicketDTO createTicket(RequestTicketDTO dto) {
         TicketEntity entity = convertToCreateEntity(dto);
@@ -141,9 +120,9 @@ public class TicketService {
         return createdDto;
     }
 
-    public ResponseTicketDTO updateTicket(String id, RequestTicketDTO ticket) throws Exception {
-        TicketEntity old = ticketDao.findById(id).orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
-        TicketEntity updated = this.updateTicket(old, ticket);
+    public ResponseTicketDTO updateTicket(String id, RequestTicketDTO dto) throws Exception {
+        TicketEntity ticket = ticketDao.findById(id).orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
+        TicketEntity updated = this.convertToEditEntity(ticket, dto);
         return convertToDTO(ticketDao.save(updated));
     }
 
