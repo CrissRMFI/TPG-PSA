@@ -24,11 +24,10 @@ import com.psa.backend.model.ProductVersionEntity;
 import com.psa.backend.model.TicketEntity;
 import com.psa.backend.services.external.ClientsService;
 import com.psa.backend.services.external.ResourceService;
+import com.psa.backend.enums.TicketPriorityScaleEnum;
+import com.psa.backend.enums.TicketSeverityScaleEnum;
+import com.psa.backend.enums.TicketStateEnum;
 import com.psa.backend.model.TicketTaskRelationEntity;
-import com.psa.backend.dto.ResponseTicketDTO;
-
-
-
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -127,6 +126,9 @@ public class TicketService {
 
     private TicketEntity updateTicket(TicketEntity old, RequestTicketDTO ticket) {
         old.setDescripcion(ticket.getDescripcion());
+        old.setSeveridad(ticket.getSeveridad());
+        old.setPrioridad(ticket.getPrioridad());
+        old.setEstado(ticket.getEstado());
         return old;
     }
 
@@ -143,11 +145,6 @@ public class TicketService {
         TicketEntity old = ticketDao.findById(id).orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
         TicketEntity updated = this.updateTicket(old, ticket);
         return convertToDTO(ticketDao.save(updated));
-    }
-
-    public ResponseTicketDTO updateAsignedResource(String id, RequestAsignTicketDTO asignTicket) throws Exception {
-        //TODO
-        return null;
     }
 
     public String deleteTicket(String id) {

@@ -1,11 +1,13 @@
 package com.psa.backend.dto;
 
+import java.util.List;
+
 import com.psa.backend.enums.TicketPriorityScaleEnum;
 import com.psa.backend.enums.TicketSeverityScaleEnum;
+import com.psa.backend.enums.TicketStateEnum;
+
 import lombok.Builder;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 @Builder
@@ -18,4 +20,5 @@ public class RequestTicketDTO {
     private String idCliente;
     private String idResponsable; // opcional
     private List<String> taskCodes; // códigos de tareas asociadas
+    private TicketStateEnum estado;
 }
