@@ -54,7 +54,4 @@ public class TicketEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "VA_ESTADO", nullable = false)
     private TicketStateEnum estado;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ticket", cascade = CascadeType.ALL)
-    List<TicketTaskRelationEntity> tareas = new ArrayList();
 }
