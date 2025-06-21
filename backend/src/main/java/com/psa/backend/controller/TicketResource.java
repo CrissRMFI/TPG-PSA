@@ -53,6 +53,11 @@ public class TicketResource {
         }
     }
 
+    @GetMapping("/state/uncompleted")
+    public List<ResponseTicketDataDTO> getUncompletedTicketsData() {
+        return ticketService.getUncompletedTicketsData();
+    }
+
     @GetMapping("/data")
     public List<ResponseTicketDataDTO> getAllTicketsData() {
         return ticketService.getAllTicketsData();

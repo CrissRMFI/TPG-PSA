@@ -1,6 +1,7 @@
 package com.psa.backend.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +73,9 @@ public class TicketService {
                 .idVersion(ticket.getVersion().getId().toString())
                 .version(ticket.getVersion().getVersion())
                 .idResponsable(ticket.getIdResponsable())
-                .nombreResponsable(StringUtils.hasText(resource.getNombre()) ? resource.getNombre() +" "+ resource.getApellido() : "Desconocido" )
+                .nombreResponsable(
+                        StringUtils.hasText(resource.getNombre()) ? resource.getNombre() + " " + resource.getApellido()
+                                : "Desconocido")
                 .build();
     }
 
@@ -84,8 +87,8 @@ public class TicketService {
         ticket.setEstado(dto.getEstado());
         ticket.setIdResponsable(dto.getIdResponsable());
 
-        //ticket.setVersion(ProductVersionEntity.builder().id(Long.valueOf(dto.getVersion())).build());
-        //ticket.setIdCliente(dto.getIdCliente());
+        // ticket.setVersion(ProductVersionEntity.builder().id(Long.valueOf(dto.getVersion())).build());
+        // ticket.setIdCliente(dto.getIdCliente());
         return ticket;
     }
 
@@ -112,7 +115,8 @@ public class TicketService {
     }
 
     public ResponseTicketDTO updateTicket(String id, RequestTicketDTO dto) throws Exception {
-        TicketEntity ticket = ticketDao.findById(id).orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
+        TicketEntity ticket = ticketDao.findById(id)
+                .orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
         TicketEntity updated = this.convertToEditEntity(ticket, dto);
         return convertToDTO(ticketDao.save(updated));
     }
@@ -138,7 +142,7 @@ public class TicketService {
     public List<ResponseTicketDataDTO> getTicketsDataByVersionId(String idVersion) {
         Stream<TicketEntity> tickets = ticketDao.findAllByVersionId(Long.valueOf(idVersion));
         return tickets.map(ticket -> convertToTicketData(ticket)).toList();
-        
+
     }
 
     public ResponseTicketDTO getById(String id) throws Exception {
@@ -158,6 +162,15 @@ public class TicketService {
                 .stream()
                 .map(this::convertToTicketData)
                 .toList();
+    }
+
+    public List<ResponseTicketDataDTO> getUncompletedTicketsData() {
+        return ticketDao.findAllByEstadoIn(List.of(
+                TicketStateEnum.CREATED,
+                TicketStateEnum.IN_PROGRESS,
+                TicketStateEnum.WAITING_FOR_VALIDATION))
+                .map(this::convertToTicketData)
+                .collect(Collectors.toList());
     }
 
 }
