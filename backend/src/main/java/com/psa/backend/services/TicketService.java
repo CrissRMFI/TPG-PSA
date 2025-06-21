@@ -114,6 +114,7 @@ public class TicketService {
         return createdDto;
     }
 
+    @Transactional
     public ResponseTicketDTO updateTicket(String id, RequestTicketDTO dto) throws Exception {
         TicketEntity ticket = ticketDao.findById(id)
                 .orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
@@ -121,11 +122,13 @@ public class TicketService {
         return convertToDTO(ticketDao.save(updated));
     }
 
+    @Transactional
     public String deleteTicket(String id) {
         ticketDao.deleteById(id);
         return id;
     }
 
+    @Transactional(readOnly = true)
     public List<ResponseTicketDTO> getAllTickets() {
         return ticketDao.findAll()
                 .stream()
@@ -145,18 +148,21 @@ public class TicketService {
 
     }
 
+    @Transactional(readOnly = true)
     public ResponseTicketDTO getById(String id) throws Exception {
         TicketEntity ticket = ticketDao.findById(id)
                 .orElseThrow(() -> new Exception("Ticket no encontrado"));
         return convertToDTO(ticket);
     }
 
+    @Transactional(readOnly = true)
     public ResponseTicketDataDTO getTicketDataById(String id) throws Exception {
         TicketEntity ticket = ticketDao.findById(id)
                 .orElseThrow(() -> new Exception("Ticket no encontrado"));
         return convertToTicketData(ticket);
     }
 
+    @Transactional(readOnly = true)
     public List<ResponseTicketDataDTO> getAllTicketsData() {
         return ticketDao.findAll()
                 .stream()
@@ -164,6 +170,7 @@ public class TicketService {
                 .toList();
     }
 
+    @Transactional(readOnly = true)
     public List<ResponseTicketDataDTO> getUncompletedTicketsData() {
         return ticketDao.findAllByEstadoIn(List.of(
                 TicketStateEnum.CREATED,
