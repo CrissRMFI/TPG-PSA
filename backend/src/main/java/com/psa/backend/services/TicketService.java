@@ -76,10 +76,12 @@ public class TicketService {
     }
 
     private TicketEntity updateTicket(TicketEntity old, RequestTicketDTO ticket) {
+        old.setNombre(ticket.getNombre());
         old.setDescripcion(ticket.getDescripcion());
         old.setSeveridad(ticket.getSeveridad());
         old.setPrioridad(ticket.getPrioridad());
         old.setEstado(ticket.getEstado());
+        old.setIdResponsable(ticket.getIdResponsable());
         
     
         return old;
