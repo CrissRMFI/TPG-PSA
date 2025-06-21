@@ -35,8 +35,8 @@ COPY --from=builder /app/${JAR_FILE} /app-modulo-soporte.jar
 RUN ls -la /app-modulo-soporte.jar || echo "JAR not found after copy"
 
 # Copy keystore if needed
-COPY backend/src/main/resources/keystore.p12 app/keystore.p12
-RUN ls -la /app/keystore.p12 || echo "keystore.p12 not found after copy"
+#COPY backend/src/main/resources/keystore.p12 app/keystore.p12
+#RUN ls -la /app/keystore.p12 || echo "keystore.p12 not found after copy"
 
 EXPOSE 8443
 
