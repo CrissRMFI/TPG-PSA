@@ -1,7 +1,11 @@
 package com.psa.backend.services;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 import org.springframework.beans.BeanUtils;
@@ -39,6 +43,8 @@ public class TicketService {
     public ClientsService clientService;
     @Autowired
     public ProjectTaskService projectTaskService;
+
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.forLanguageTag("es-ES"));;
 
     private ResponseTicketDTO convertToDTO(TicketEntity ticket) {
         return ResponseTicketDTO.builder()
@@ -81,6 +87,7 @@ public class TicketService {
                 .nombreResponsable(
                         StringUtils.hasText(resource.getNombre()) ? resource.getNombre() + " " + resource.getApellido()
                                 : "Desconocido")
+                .fechaCreacion(dateFormatter.format(ticket.getFechaCreacion()))
                 .build();
     }
 
@@ -135,6 +142,7 @@ public class TicketService {
         ticket.setVersion(productVersionDao.findById(dto.getVersion()).get());
         ticket.setIdResponsable(dto.getIdResponsable());
         ticket.setEstado(TicketStateEnum.CREATED);
+        ticket.setFechaCreacion(LocalDate.now());
         return ticket;
     }
 
