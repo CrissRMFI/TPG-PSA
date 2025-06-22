@@ -1,7 +1,11 @@
 package com.psa.backend.services;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 import org.springframework.beans.BeanUtils;
@@ -40,6 +44,8 @@ public class TicketService {
     @Autowired
     public ProjectTaskService projectTaskService;
 
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.forLanguageTag("es-ES"));;
+
     private ResponseTicketDTO convertToDTO(TicketEntity ticket) {
         return ResponseTicketDTO.builder()
                 .internalId(ticket.getId().toString())
@@ -56,35 +62,7 @@ public class TicketService {
                 .build();
     }
 
-    private ResponseTicketDataDTO convertToTicketData(TicketEntity ticket) {
-        ResponseResourceDTO resource = resourceService.getResourceById(ticket.getIdResponsable(), false);
-        ResponseClientDTO client = clientService.getClientById(ticket.getIdCliente(), false);
-        return ResponseTicketDataDTO.builder()
-                .internalId(ticket.getId())
-                .codigo(ticket.getVersion().getProducto().getPrefix() + "-" + ticket.getId())
-                .nombre(ticket.getNombre())
-                .prioridad(ticket.getPrioridad().getCode())
-                .prioridadLabel(ticket.getPrioridad().getLabel())
-                .severidad(ticket.getSeveridad().getCode())
-                .severidadLabel(ticket.getSeveridad().getLabel())
-                .estado(ticket.getEstado().getCode())
-                .estadoLabel(ticket.getEstado().getLabel())
-                .descripcion(ticket.getDescripcion())
-                .version(ticket.getVersion().getVersion())
-                .idCliente(ticket.getIdCliente())
-                .nombreCliente(client.getRazon_social())
-                .idProducto(ticket.getVersion().getProducto().getId().toString())
-                .nombreProducto(ticket.getVersion().getProducto().getNombre())
-                .idVersion(ticket.getVersion().getId().toString())
-                .version(ticket.getVersion().getVersion())
-                .idResponsable(ticket.getIdResponsable())
-                .nombreResponsable(
-                        StringUtils.hasText(resource.getNombre()) ? resource.getNombre() + " " + resource.getApellido()
-                                : "Desconocido")
-                .build();
-    }
-
-    private ResponseTicketTasksDataDTO convertToTicketTaskData(TicketEntity ticket) {
+    private ResponseTicketTasksDataDTO convertToTicketData(TicketEntity ticket) {
         ResponseResourceDTO resource = resourceService.getResourceById(ticket.getIdResponsable(), false);
         ResponseClientDTO client = clientService.getClientById(ticket.getIdCliente(), false);
         return ResponseTicketTasksDataDTO.builder()
@@ -109,6 +87,7 @@ public class TicketService {
                 .nombreResponsable(
                         StringUtils.hasText(resource.getNombre()) ? resource.getNombre() + " " + resource.getApellido()
                                 : "Desconocido")
+                .fechaCreacion(dateFormatter.format(ticket.getFechaCreacion()))
                 .build();
     }
 
@@ -135,6 +114,7 @@ public class TicketService {
         ticket.setVersion(productVersionDao.findById(dto.getVersion()).get());
         ticket.setIdResponsable(dto.getIdResponsable());
         ticket.setEstado(TicketStateEnum.CREATED);
+        ticket.setFechaCreacion(LocalDate.now());
         return ticket;
     }
 
@@ -162,20 +142,7 @@ public class TicketService {
     }
 
     @Transactional(readOnly = true)
-    public List<ResponseTicketDTO> getAllTickets() {
-        return ticketDao.findAll()
-                .stream()
-                .map(this::convertToDTO)
-                .toList();
-    }
-
-    @Transactional(readOnly = true)
-    public List<ResponseTicketDTO> getTicketsPorProductoYVersion(String id) {
-        return ticketDao.findAllByVersionId(Long.valueOf(id)).map(this::convertToDTO).toList();
-    }
-
-    @Transactional(readOnly = true)
-    public List<ResponseTicketDataDTO> getTicketsDataByVersionId(String idVersion) {
+    public List<ResponseTicketTasksDataDTO> getTicketsDataByVersionId(String idVersion) {
         Stream<TicketEntity> tickets = ticketDao.findAllByVersionId(Long.valueOf(idVersion));
         return tickets.map(ticket -> convertToTicketData(ticket)).toList();
 
@@ -192,15 +159,13 @@ public class TicketService {
     public ResponseTicketTasksDataDTO getTicketDataById(String id) throws Exception {
         TicketEntity ticket = ticketDao.findById(id)
                 .orElseThrow(() -> new Exception("Ticket no encontrado"));
-        ResponseTicketDataDTO dto = convertToTicketData(ticket);
-        ResponseTicketTasksDataDTO response = new ResponseTicketTasksDataDTO();
-        BeanUtils.copyProperties(dto, response);
+        ResponseTicketTasksDataDTO response = convertToTicketData(ticket);
         response.setTasks(projectTaskService.getTasksByTicketId(id));
         return response;
     }
 
     @Transactional(readOnly = true)
-    public List<ResponseTicketDataDTO> getAllTicketsData() {
+    public List<ResponseTicketTasksDataDTO> getAllTicketsData() {
         return ticketDao.findAll()
                 .stream()
                 .map(this::convertToTicketData)
@@ -214,6 +179,11 @@ public class TicketService {
                 TicketStateEnum.IN_PROGRESS,
                 TicketStateEnum.WAITING_FOR_VALIDATION))
                 .map(this::convertToTicketData)
+                .map(t -> {
+                    ResponseTicketDataDTO response = new ResponseTicketDataDTO();
+                    BeanUtils.copyProperties(t, response);
+                    return response;
+                })
                 .collect(Collectors.toList());
     }
 

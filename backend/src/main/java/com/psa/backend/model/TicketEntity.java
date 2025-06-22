@@ -1,5 +1,7 @@
 package com.psa.backend.model;
 
+import java.time.LocalDate;
+
 import com.psa.backend.enums.TicketPriorityScaleEnum;
 import com.psa.backend.enums.TicketSeverityScaleEnum;
 import com.psa.backend.enums.TicketStateEnum;
@@ -45,6 +47,9 @@ public class TicketEntity {
 
     @Column(name = "VA_EXTERNAL_RESPONSABLE_ID")
     private String idResponsable;
+
+    @Column(name = "DA_FECHA_CREACION")
+    private LocalDate fechaCreacion;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "VA_ESTADO", nullable = false)
