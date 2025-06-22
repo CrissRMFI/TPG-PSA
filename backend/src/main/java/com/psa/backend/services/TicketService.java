@@ -192,7 +192,9 @@ public class TicketService {
     public ResponseTicketTasksDataDTO getTicketDataById(String id) throws Exception {
         TicketEntity ticket = ticketDao.findById(id)
                 .orElseThrow(() -> new Exception("Ticket no encontrado"));
-        ResponseTicketTasksDataDTO response = convertToTicketTaskData(ticket);
+        ResponseTicketDataDTO dto = convertToTicketData(ticket);
+        ResponseTicketTasksDataDTO response = new ResponseTicketTasksDataDTO();
+        BeanUtils.copyProperties(dto, response);
         response.setTasks(projectTaskService.getTasksByTicketId(id));
         return response;
     }
