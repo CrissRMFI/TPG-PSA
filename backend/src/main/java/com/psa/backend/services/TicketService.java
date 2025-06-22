@@ -18,6 +18,7 @@ import com.psa.backend.dto.external.ResponseClientDTO;
 import com.psa.backend.dto.external.ResponseResourceDTO;
 import com.psa.backend.model.TicketEntity;
 import com.psa.backend.services.external.ClientsService;
+import com.psa.backend.services.external.ProjectTaskService;
 import com.psa.backend.services.external.ResourceService;
 import com.psa.backend.enums.TicketStateEnum;
 
@@ -34,6 +35,8 @@ public class TicketService {
     public ResourceService resourceService;
     @Autowired
     public ClientsService clientService;
+    @Autowired
+    public ProjectTaskService projectTaskService;
 
     private ResponseTicketDTO convertToDTO(TicketEntity ticket) {
         return ResponseTicketDTO.builder()
@@ -159,7 +162,9 @@ public class TicketService {
     public ResponseTicketDataDTO getTicketDataById(String id) throws Exception {
         TicketEntity ticket = ticketDao.findById(id)
                 .orElseThrow(() -> new Exception("Ticket no encontrado"));
-        return convertToTicketData(ticket);
+        ResponseTicketDataDTO dto = convertToTicketData(ticket);
+        dto.setTasks(projectTaskService.getTasksByTicketId(id));
+        return dto;
     }
 
     @Transactional(readOnly = true)

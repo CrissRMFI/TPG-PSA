@@ -1,5 +1,7 @@
 package com.psa.backend.dto;
 
+import java.util.List;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -31,4 +33,6 @@ public class ResponseTicketDataDTO {
 
     private String idResponsable;// ff14a491-e26d-4092-86ea-d76f20c165d1,
     private String nombreResponsable;// Desconocido,
+
+    private List<ResponseTaskDTO> tasks;
 }
