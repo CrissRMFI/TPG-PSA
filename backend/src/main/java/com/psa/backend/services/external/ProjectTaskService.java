@@ -20,7 +20,7 @@ import com.psa.backend.dto.ResponseTaskDTO;
 public class ProjectTaskService {
     private final String NAME_EXTERNAL_SERVICE = "Servicio de Modulo de Proyectos";
 
-    @Value("${external.api.project.url}")
+    @Value("${external.api.projects.url}")
     private String baseUrl; 
 
     public List<ResponseTaskDTO> getTasksByTicketId(String ticketId) {
