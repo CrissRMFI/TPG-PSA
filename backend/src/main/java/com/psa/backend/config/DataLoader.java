@@ -3,6 +3,7 @@ package com.psa.backend.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.psa.backend.model.ProductEntity;
 import com.psa.backend.model.ProductVersionEntity;
@@ -13,9 +14,6 @@ import com.psa.backend.dao.TicketDAO;
 import com.psa.backend.enums.TicketPriorityScaleEnum;
 import com.psa.backend.enums.TicketSeverityScaleEnum;
 import com.psa.backend.enums.TicketStateEnum;
-
-import java.util.List;
-import java.util.UUID;
 
 @Configuration
 public class DataLoader {
