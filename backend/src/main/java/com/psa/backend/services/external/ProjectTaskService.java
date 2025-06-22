@@ -15,8 +15,11 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.psa.backend.dto.ResponseTaskDTO;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 @Service
+@Slf4j
 public class ProjectTaskService {
     private final String NAME_EXTERNAL_SERVICE = "Servicio de Modulo de Proyectos";
 
@@ -33,9 +36,17 @@ public class ProjectTaskService {
 
         String url = baseUrl + "/tickets/externo/"+ticketId+"/tareas";
 
-        ResponseEntity<String> response = new RestTemplate().exchange(url, HttpMethod.GET, null, String.class);
-        String json = response.getBody();
+        ResponseEntity<String> response = null;
+        try {
+            response = new RestTemplate().exchange(url, HttpMethod.GET, null, String.class);
+        } catch (Exception e) {
+            log.info("No fue posible traer las tareas asociadas al ticket " + ticketId + "debido a: " + e.getMessage());
+            response = null;
+        }
 
+        if (response == null)  return List.of();
+
+        String json = response.getBody();
         List<ResponseTaskDTO> output = null;
         try {
             output = mapper.readValue(json, new TypeReference<List<ResponseTaskDTO>>() {
