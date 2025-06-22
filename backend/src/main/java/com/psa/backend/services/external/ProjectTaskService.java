@@ -2,7 +2,6 @@ package com.psa.backend.services.external;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +31,9 @@ public class ProjectTaskService {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        ResponseEntity<String> response = new RestTemplate().exchange(baseUrl, HttpMethod.GET, null, String.class);
+        String url = baseUrl + "/tickets/externo/"+ticketId+"/tareas";
+
+        ResponseEntity<String> response = new RestTemplate().exchange(url, HttpMethod.GET, null, String.class);
         String json = response.getBody();
 
         List<ResponseTaskDTO> output = null;

@@ -69,7 +69,7 @@ public class TicketResource {
             ResponseTicketDataDTO ticket = ticketService.getTicketDataById(id);
             return ResponseEntity.ok(ticket);
         } catch (Exception e) {
-            return ResponseEntity.status(404).body("Ticket no encontrado");
+            return ResponseEntity.status(404).body(e.getMessage());
         }
     }
 
