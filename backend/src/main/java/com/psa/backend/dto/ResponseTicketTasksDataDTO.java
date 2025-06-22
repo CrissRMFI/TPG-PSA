@@ -2,14 +2,16 @@ package com.psa.backend.dto;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-// NO MODIFICAR, USO EXCLUSIVO PARA EL ENDPOINT ticket/state/uncompleted
-// caso contrario rompe la integración con el modulo de proyectos
-public class ResponseTicketDataDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+public class ResponseTicketTasksDataDTO {
     private Long internalId; 
     private String codigo;// TCK-1750335319951,
     private String nombre;// Ticket Prueba Deploy,
@@ -35,4 +37,6 @@ public class ResponseTicketDataDTO {
 
     private String idResponsable;// ff14a491-e26d-4092-86ea-d76f20c165d1,
     private String nombreResponsable;// Desconocido,
+
+    private List<ResponseTaskDTO> tasks;
 }
