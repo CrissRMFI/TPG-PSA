@@ -13,6 +13,8 @@ services:
         value: https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/754f50e8-20d8-4223-bbdc-56d50131d0ae/clientes-psa/1.0.0/m/api/clientes
       - key: EXT_API_RESOURCES
         value: https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/32c8fe38-22a6-4fbb-b461-170dfac937e4/recursos-api/1.0.1/m/recursos
+      - key: MS_API_PROJECT
+        value: https://psa-backend-gerb.onrender.com/api
       - key: API_CONTEXT_PATH
         value: /support-module
       - key: DB_URL
@@ -54,6 +56,8 @@ services:
         value: https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/754f50e8-20d8-4223-bbdc-56d50131d0ae/clientes-psa/1.0.0/m/api/clientes
       - key: EXT_API_RESOURCES
         value: https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/32c8fe38-22a6-4fbb-b461-170dfac937e4/recursos-api/1.0.1/m/recursos
+      - key: MS_API_PROJECT
+        value: https://psa-backend-gerb.onrender.com/api
       - key: API_CONTEXT_PATH
         value: /support-module
       - key: DB_URL
