@@ -35,4 +35,7 @@ public class ResponseTicketDataDTO {
 
     private String idResponsable;// ff14a491-e26d-4092-86ea-d76f20c165d1,
     private String nombreResponsable;// Desconocido,
+
+    private String fechaCreacion;// 25 Dic 2025
 }
+
