@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.psa.backend.dto.RequestTicketDTO;
 import com.psa.backend.dto.ResponseTicketDTO;
 import com.psa.backend.dto.ResponseTicketDataDTO;
+import com.psa.backend.dto.ResponseTicketTasksDataDTO;
 import com.psa.backend.services.TicketService;
 
 @CrossOrigin
@@ -66,7 +67,7 @@ public class TicketResource {
     @GetMapping("data/{id}")
     public ResponseEntity<?> getTicketDataById(@PathVariable String id) {
         try {
-            ResponseTicketDataDTO ticket = ticketService.getTicketDataById(id);
+            ResponseTicketTasksDataDTO ticket = ticketService.getTicketDataById(id);
             return ResponseEntity.ok(ticket);
         } catch (Exception e) {
             return ResponseEntity.status(404).body(e.getMessage());
