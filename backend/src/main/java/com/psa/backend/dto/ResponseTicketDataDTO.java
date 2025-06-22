@@ -7,6 +7,8 @@ import lombok.Data;
 
 @Data
 @Builder
+// NO MODIFICAR, USO EXCLUSIVO PARA EL ENDPOINT ticket/state/uncompleted
+// caso contrario rompe la integración con el modulo de proyectos
 public class ResponseTicketDataDTO {
     private Long internalId; 
     private String codigo;// TCK-1750335319951,
@@ -33,6 +35,4 @@ public class ResponseTicketDataDTO {
 
     private String idResponsable;// ff14a491-e26d-4092-86ea-d76f20c165d1,
     private String nombreResponsable;// Desconocido,
-
-    private List<ResponseTaskDTO> tasks;
 }
