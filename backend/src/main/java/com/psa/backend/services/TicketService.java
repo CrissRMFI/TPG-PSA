@@ -170,20 +170,7 @@ public class TicketService {
     }
 
     @Transactional(readOnly = true)
-    public List<ResponseTicketDTO> getAllTickets() {
-        return ticketDao.findAll()
-                .stream()
-                .map(this::convertToDTO)
-                .toList();
-    }
-
-    @Transactional(readOnly = true)
-    public List<ResponseTicketDTO> getTicketsPorProductoYVersion(String id) {
-        return ticketDao.findAllByVersionId(Long.valueOf(id)).map(this::convertToDTO).toList();
-    }
-
-    @Transactional(readOnly = true)
-    public List<ResponseTicketDataDTO> getTicketsDataByVersionId(String idVersion) {
+    public List<ResponseTicketTasksDataDTO> getTicketsDataByVersionId(String idVersion) {
         Stream<TicketEntity> tickets = ticketDao.findAllByVersionId(Long.valueOf(idVersion));
         return tickets.map(ticket -> convertToTicketData(ticket)).toList();
 
@@ -208,7 +195,7 @@ public class TicketService {
     }
 
     @Transactional(readOnly = true)
-    public List<ResponseTicketDataDTO> getAllTicketsData() {
+    public List<ResponseTicketTasksDataDTO> getAllTicketsData() {
         return ticketDao.findAll()
                 .stream()
                 .map(this::convertToTicketData)

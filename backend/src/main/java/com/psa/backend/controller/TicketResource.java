@@ -60,7 +60,7 @@ public class TicketResource {
     }
 
     @GetMapping("/data")
-    public List<ResponseTicketDataDTO> getAllTicketsData() {
+    public List<ResponseTicketTasksDataDTO> getAllTicketsData() {
         return ticketService.getAllTicketsData();
     }
 
@@ -75,7 +75,7 @@ public class TicketResource {
     }
 
     @GetMapping("/version/{idVersion}")
-    public List<ResponseTicketDataDTO> getTicketDeVersion(
+    public List<ResponseTicketTasksDataDTO> getTicketDeVersion(
             @PathVariable String idVersion 
     ) {
         return ticketService.getTicketsDataByVersionId(idVersion);
