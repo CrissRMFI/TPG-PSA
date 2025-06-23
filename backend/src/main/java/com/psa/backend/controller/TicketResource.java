@@ -44,10 +44,10 @@ public class TicketResource {
     }
 
 
-    @DeleteMapping("/{ticketId}")
-    public ResponseEntity deleteTicket(@PathVariable String ticketId) {
+    @PutMapping("cancel/{ticketId}")
+    public ResponseEntity cancelTicket(@PathVariable String ticketId) {
         try {
-            String id = ticketService.deleteTicket(ticketId);
+            String id = ticketService.cancelTicket(ticketId);
             return ResponseEntity.ok().body(id);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
