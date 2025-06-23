@@ -1,10 +1,5 @@
 package com.psa.backend;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
-import io.cucumber.java.en.Then;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -14,6 +9,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 
 import com.psa.backend.dao.ProductVersionDAO;
 import com.psa.backend.dto.RequestTicketDTO;
@@ -24,9 +20,14 @@ import com.psa.backend.model.TicketEntity;
 import com.psa.backend.services.TicketService;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.cucumber.spring.CucumberContextConfiguration;
 
 @CucumberContextConfiguration
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@ActiveProfiles("test")
 public class RegistroTicketsSteps {
     TicketSeverityScaleEnum severity = null;
     String version = null;
