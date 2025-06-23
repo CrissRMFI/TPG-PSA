@@ -86,7 +86,7 @@ public class TicketService {
                 .idResponsable(ticket.getIdResponsable())
                 .nombreResponsable(
                         StringUtils.hasText(resource.getNombre()) ? resource.getNombre() + " " + resource.getApellido()
-                                : "Desconocido")
+                                : "Sin asignar")
                 .fechaCreacion(dateFormatter.format(ticket.getFechaCreacion()))
                 .build();
     }
@@ -104,7 +104,7 @@ public class TicketService {
         return ticket;
     }
 
-    private TicketEntity convertToCreateEntity(RequestTicketDTO dto) {
+    public TicketEntity convertToCreateEntity(RequestTicketDTO dto) {
         TicketEntity ticket = new TicketEntity();
         ticket.setNombre(dto.getNombre());
         ticket.setPrioridad(dto.getPrioridad());

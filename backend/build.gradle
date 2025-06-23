@@ -39,9 +39,12 @@ dependencies {
   implementation 'org.postgresql:postgresql:42.7.3'
 
   // Cucumber
-  testImplementation 'io.cucumber:cucumber-java:7.11.2'
-  testImplementation 'io.cucumber:cucumber-junit:7.11.2'
+  testImplementation 'io.cucumber:cucumber-java:7.23.0'
+  testImplementation 'io.cucumber:cucumber-junit:7.23.0'
   testImplementation 'junit:junit:4.13.2'
+  testImplementation 'com.h2database:h2:2.2.224'
+  // https://mvnrepository.com/artifact/io.cucumber/cucumber-spring
+  implementation 'io.cucumber:cucumber-spring:7.23.0'
 }
 
 test {
