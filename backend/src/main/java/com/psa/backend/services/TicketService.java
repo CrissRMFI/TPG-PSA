@@ -136,8 +136,11 @@ public class TicketService {
     }
 
     @Transactional
-    public String deleteTicket(String id) {
-        ticketDao.deleteById(id);
+    public String cancelTicket(String id) throws Exception {
+        TicketEntity ticket = ticketDao.findById(id)
+                .orElseThrow(() -> new Exception("No existe la entidad con id: " + id));
+        ticket.setEstado(TicketStateEnum.CANCEL);
+        ticketDao.save(ticket);
         return id;
     }
 
