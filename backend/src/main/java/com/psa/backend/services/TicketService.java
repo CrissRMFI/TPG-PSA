@@ -62,36 +62,7 @@ public class TicketService {
                 .build();
     }
 
-    private ResponseTicketDataDTO convertToTicketData(TicketEntity ticket) {
-        ResponseResourceDTO resource = resourceService.getResourceById(ticket.getIdResponsable(), false);
-        ResponseClientDTO client = clientService.getClientById(ticket.getIdCliente(), false);
-        return ResponseTicketDataDTO.builder()
-                .internalId(ticket.getId())
-                .codigo(ticket.getVersion().getProducto().getPrefix() + "-" + ticket.getId())
-                .nombre(ticket.getNombre())
-                .prioridad(ticket.getPrioridad().getCode())
-                .prioridadLabel(ticket.getPrioridad().getLabel())
-                .severidad(ticket.getSeveridad().getCode())
-                .severidadLabel(ticket.getSeveridad().getLabel())
-                .estado(ticket.getEstado().getCode())
-                .estadoLabel(ticket.getEstado().getLabel())
-                .descripcion(ticket.getDescripcion())
-                .version(ticket.getVersion().getVersion())
-                .idCliente(ticket.getIdCliente())
-                .nombreCliente(client.getRazon_social())
-                .idProducto(ticket.getVersion().getProducto().getId().toString())
-                .nombreProducto(ticket.getVersion().getProducto().getNombre())
-                .idVersion(ticket.getVersion().getId().toString())
-                .version(ticket.getVersion().getVersion())
-                .idResponsable(ticket.getIdResponsable())
-                .nombreResponsable(
-                        StringUtils.hasText(resource.getNombre()) ? resource.getNombre() + " " + resource.getApellido()
-                                : "Desconocido")
-                .fechaCreacion(dateFormatter.format(ticket.getFechaCreacion()))
-                .build();
-    }
-
-    private ResponseTicketTasksDataDTO convertToTicketTaskData(TicketEntity ticket) {
+    private ResponseTicketTasksDataDTO convertToTicketData(TicketEntity ticket) {
         ResponseResourceDTO resource = resourceService.getResourceById(ticket.getIdResponsable(), false);
         ResponseClientDTO client = clientService.getClientById(ticket.getIdCliente(), false);
         return ResponseTicketTasksDataDTO.builder()
@@ -116,6 +87,7 @@ public class TicketService {
                 .nombreResponsable(
                         StringUtils.hasText(resource.getNombre()) ? resource.getNombre() + " " + resource.getApellido()
                                 : "Desconocido")
+                .fechaCreacion(dateFormatter.format(ticket.getFechaCreacion()))
                 .build();
     }
 
@@ -187,9 +159,7 @@ public class TicketService {
     public ResponseTicketTasksDataDTO getTicketDataById(String id) throws Exception {
         TicketEntity ticket = ticketDao.findById(id)
                 .orElseThrow(() -> new Exception("Ticket no encontrado"));
-        ResponseTicketDataDTO dto = convertToTicketData(ticket);
-        ResponseTicketTasksDataDTO response = new ResponseTicketTasksDataDTO();
-        BeanUtils.copyProperties(dto, response);
+        ResponseTicketTasksDataDTO response = convertToTicketData(ticket);
         response.setTasks(projectTaskService.getTasksByTicketId(id));
         return response;
     }
@@ -209,6 +179,11 @@ public class TicketService {
                 TicketStateEnum.IN_PROGRESS,
                 TicketStateEnum.WAITING_FOR_VALIDATION))
                 .map(this::convertToTicketData)
+                .map(t -> {
+                    ResponseTicketDataDTO response = new ResponseTicketDataDTO();
+                    BeanUtils.copyProperties(t, response);
+                    return response;
+                })
                 .collect(Collectors.toList());
     }
 
