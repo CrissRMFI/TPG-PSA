@@ -90,6 +90,5 @@ public class BuscarTicketSteps {
                 .allMatch(ticket -> ticket.getSeveridad().equals(severidadEnum));
 
         assertEquals(true, todosCoinciden, "Hay tickets que no tienen la severidad esperada.");
-
     }
 }

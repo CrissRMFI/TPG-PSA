@@ -3,9 +3,10 @@ package com.psa.backend.services;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.Locale;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.BeanUtils;
@@ -22,11 +23,11 @@ import com.psa.backend.dto.ResponseTicketDataDTO;
 import com.psa.backend.dto.ResponseTicketTasksDataDTO;
 import com.psa.backend.dto.external.ResponseClientDTO;
 import com.psa.backend.dto.external.ResponseResourceDTO;
+import com.psa.backend.enums.TicketStateEnum;
 import com.psa.backend.model.TicketEntity;
 import com.psa.backend.services.external.ClientsService;
 import com.psa.backend.services.external.ProjectTaskService;
 import com.psa.backend.services.external.ResourceService;
-import com.psa.backend.enums.TicketStateEnum;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,21 +45,23 @@ public class TicketService {
     @Autowired
     public ProjectTaskService projectTaskService;
 
-    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.forLanguageTag("es-ES"));;
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)
+            .withLocale(Locale.forLanguageTag("es-ES"));;
 
     private ResponseTicketDTO convertToDTO(TicketEntity ticket) {
         return ResponseTicketDTO.builder()
                 .internalId(ticket.getId().toString())
-                .codigo(ticket.getVersion().getProducto().getPrefix() + ticket.getId())
                 .nombre(ticket.getNombre())
                 .prioridad(ticket.getPrioridad())
                 .severidad(ticket.getSeveridad())
                 .estado(ticket.getEstado())
                 .descripcion(ticket.getDescripcion())
+                .idVersion(ticket.getVersion().getId())
                 .version(ticket.getVersion().getVersion())
                 .idCliente(ticket.getIdCliente())
                 .idProducto(ticket.getVersion().getProducto().getId().toString())
                 .idResponsable(ticket.getIdResponsable())
+                .fechaCreacion(ticket.getFechaCreacion())
                 .build();
     }
 
@@ -106,6 +109,25 @@ public class TicketService {
 
     public TicketEntity convertToCreateEntity(RequestTicketDTO dto) {
         TicketEntity ticket = new TicketEntity();
+        List<String> errors = new ArrayList<>();
+        if (!StringUtils.hasText(dto.getNombre())) {
+            errors.add("ticket.titulo es requerido");
+        }
+        if (dto.getPrioridad() == null) {
+            errors.add("ticket.prioridad es requerido");
+        }
+        if (!StringUtils.hasText(dto.getIdCliente())) {
+            errors.add("ticket.cliente es requerido");
+        }
+        if (!StringUtils.hasText(dto.getVersion())) {
+            errors.add("ticket.version es requerido");
+        }
+        if (dto.getSeveridad() == null) {
+            errors.add("ticket.severidad es requerido");
+        }
+        if (!errors.isEmpty())
+            throw new RuntimeException(errors.stream().reduce((a, b) -> a + ", " + b).get());
+
         ticket.setNombre(dto.getNombre());
         ticket.setPrioridad(dto.getPrioridad());
         ticket.setSeveridad(dto.getSeveridad());
@@ -119,9 +141,14 @@ public class TicketService {
     }
 
     @Transactional
-    public ResponseTicketDTO createTicket(RequestTicketDTO dto) {
-        TicketEntity entity = convertToCreateEntity(dto);
-        entity = ticketDao.save(entity);
+    public ResponseTicketDTO createTicket(RequestTicketDTO dto) throws RuntimeException {
+        TicketEntity entity;
+        try {
+            entity = convertToCreateEntity(dto);
+            entity = ticketDao.save(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("No fue posible crear el ticket porque: " + e.getMessage());
+        }
         ResponseTicketDTO createdDto = convertToDTO(entity);
         log.info("Guardando ticket: {}", createdDto);
         return createdDto;

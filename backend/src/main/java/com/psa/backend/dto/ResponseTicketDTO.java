@@ -1,5 +1,7 @@
 package com.psa.backend.dto;
 
+import java.time.LocalDate;
+
 import com.psa.backend.enums.TicketPriorityScaleEnum;
 import com.psa.backend.enums.TicketSeverityScaleEnum;
 import com.psa.backend.enums.TicketStateEnum;
@@ -17,7 +19,9 @@ public class ResponseTicketDTO {
     private TicketStateEnum estado;
     private String descripcion;
     private String version;
+    private Long idVersion;
     private String idProducto;
     private String idResponsable;
     private String idCliente;
+    private LocalDate fechaCreacion;
 }
