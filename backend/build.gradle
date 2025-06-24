@@ -7,6 +7,10 @@ plugins {
 group = 'com.psa'
 version = '0.0.1-SNAPSHOT'
 
+bootRun {
+    systemProperty "spring.profiles.active", "prod"
+}
+
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
